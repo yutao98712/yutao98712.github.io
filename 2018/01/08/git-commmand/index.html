@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        test · Yutt blog
+        git常用命令 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -72,7 +72,7 @@
                 <a href="/" >Yutt&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">test</a>
+                <a href="#" class="post-name">git常用命令</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            test
+            git常用命令
             <!-- 404 -->
             
         </h1>
@@ -108,6 +108,12 @@
         <!-- 文章页meta -->
         
             <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = git>git</a>
+    
+</div>
             
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
             <div class="post-intro-meta">
@@ -195,7 +201,37 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <p>git是一个分布式版本控制工具，与CVS、SVN一类的集中式控制工具不同就，分布式版本库不需要服务器端软件，就可以运作版本控制。除此之外，git和其他版本控制工具还有不少的差别，git本身关心文件的整体性是否又改变，但多数的版本控制系统如CVS则再无文件内容的差异；git更像一个文件系统，直接在本机上获取数据而不必链接到主机端，每个开发者都拥有全部开发历史的本地副本。但是如果要与小伙伴们合作开发，还是需要将changes提交到远程的<em>代码仓库</em>（如<a href="https://github.com" target="_blank" rel="noopener">github</a>、<a href="https://gitee.com" target="_blank" rel="noopener">码云</a>、<a href="https://about.gitlab.com" target="_blank" rel="noopener">gitlab</a>、<a href="https://coding.net" target="_blank" rel="noopener">coding</a>）。这些changes可以作为新增的开发分支导入，也可以与本地开发分支合并。</p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ul>
+<li><strong>初始化本地仓库</strong></li>
+</ul>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>把要提交的changes放到暂存区</strong></li>
+</ul>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>将暂存区的所有changes提交到分支</strong></li>
+</ul>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"Initial Commit"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>添加远程仓库（origin为远程仓库的名字）</strong></li>
+</ul>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:uername/reponsitory.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>将本地库的内容（master分支）推送到远程库（origin）,-u参数可以将远程库与本地库的分支关联起来</strong></li>
+</ul>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>无论一个项目是否是由多人合作开发，分支管理都有其存在的必要性。一般来说，除却仓库初始化时会自动建立主分支（即master分支），以后的每一次开发或迭代都需要基于自己创建的开发分支，当开发分支上的项目确认没有bug之后，才能够和master分支合并。可以想象，如果在开发分支上的代码出现了难以处理的bug的时候，我们依然可以切换回master分支或者其他分支来获取能正常运行的项目。</p>
+<h3 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+<h3 id="查看本地分支"><a href="#查看本地分支" class="headerlink" title="查看本地分支"></a>查看本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+<h3 id="查看远程分支"><a href="#查看远程分支" class="headerlink" title="查看远程分支"></a>查看远程分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -r</span><br></pre></td></tr></table></figure>
+<h3 id="创建本地分支"><a href="#创建本地分支" class="headerlink" title="创建本地分支"></a>创建本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch [name]</span><br></pre></td></tr></table></figure>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [name]</span><br></pre></td></tr></table></figure>
+<h3 id="创建新分支并立即切换到新分支"><a href="#创建新分支并立即切换到新分支" class="headerlink" title="创建新分支并立即切换到新分支"></a>创建新分支并立即切换到新分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b [name]</span><br></pre></td></tr></table></figure>
+<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d [name]</span><br><span class="line">git branch -D [name]</span><br></pre></td></tr></table></figure>
+<p>-d参数只能删除已合并的分支</p>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -274,7 +310,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门"><span class="toc-number">1.</span> <span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">2.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程库信息"><span class="toc-number">2.1.</span> <span class="toc-text">查看远程库信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看本地分支"><span class="toc-number">2.2.</span> <span class="toc-text">查看本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程分支"><span class="toc-number">2.3.</span> <span class="toc-text">查看远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建本地分支"><span class="toc-number">2.4.</span> <span class="toc-text">创建本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换分支"><span class="toc-number">2.5.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新分支并立即切换到新分支"><span class="toc-number">2.6.</span> <span class="toc-text">创建新分支并立即切换到新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除分支"><span class="toc-number">2.7.</span> <span class="toc-text">删除分支</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -318,7 +354,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/test/" >test</a>
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/git-commmand/" >git常用命令</a>
         </li>
     
     
@@ -330,6 +366,8 @@
   </div>
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
