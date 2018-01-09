@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        git常用命令 · Yutt blog
+        Git常用命令 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -72,7 +72,7 @@
                 <a href="/" >Yutt&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">git常用命令</a>
+                <a href="#" class="post-name">Git常用命令</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            git常用命令
+            Git常用命令
             <!-- 404 -->
             
         </h1>
@@ -229,8 +229,17 @@
 <h3 id="创建本地分支"><a href="#创建本地分支" class="headerlink" title="创建本地分支"></a>创建本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch [name]</span><br></pre></td></tr></table></figure>
 <h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [name]</span><br></pre></td></tr></table></figure>
 <h3 id="创建新分支并立即切换到新分支"><a href="#创建新分支并立即切换到新分支" class="headerlink" title="创建新分支并立即切换到新分支"></a>创建新分支并立即切换到新分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b [name]</span><br></pre></td></tr></table></figure>
-<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d [name]</span><br><span class="line">git branch -D [name]</span><br></pre></td></tr></table></figure>
+<h3 id="推送本地分支"><a href="#推送本地分支" class="headerlink" title="推送本地分支"></a>推送本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push [远程仓库名] [本地分支名]:[远程分支名]</span><br></pre></td></tr></table></figure>
+<h3 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch [远程仓库名]/[远程分支名]</span><br></pre></td></tr></table></figure>
+<h3 id="更新本地分支"><a href="#更新本地分支" class="headerlink" title="更新本地分支"></a>更新本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull [远程仓库名] [远程分支名]:[本地分支名]</span><br></pre></td></tr></table></figure>
+<h3 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [name]</span><br></pre></td></tr></table></figure>
+<h3 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d [name]</span><br><span class="line">git branch -D [name]</span><br></pre></td></tr></table></figure>
 <p>-d选项只能删除已合并的分支</p>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [远程仓库名] :[远程分支名]</span><br></pre></td></tr></table></figure>
+<h2 id="打标签-打版本号"><a href="#打标签-打版本号" class="headerlink" title="打标签(打版本号)"></a>打标签(打版本号)</h2><h3 id="显示已有标签"><a href="#显示已有标签" class="headerlink" title="显示已有标签"></a>显示已有标签</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+<h3 id="新建标签"><a href="#新建标签" class="headerlink" title="新建标签"></a>新建标签</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag [标签名]</span><br></pre></td></tr></table></figure>
+<h3 id="查看相应标签的版本信息"><a href="#查看相应标签的版本信息" class="headerlink" title="查看相应标签的版本信息"></a>查看相应标签的版本信息</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show [标签名]</span><br></pre></td></tr></table></figure>
+<h3 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d [标签名]</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- 前后页  -->
@@ -317,7 +326,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门"><span class="toc-number">1.</span> <span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">2.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程库信息"><span class="toc-number">2.1.</span> <span class="toc-text">查看远程库信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看本地分支"><span class="toc-number">2.2.</span> <span class="toc-text">查看本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程分支"><span class="toc-number">2.3.</span> <span class="toc-text">查看远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建本地分支"><span class="toc-number">2.4.</span> <span class="toc-text">创建本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换分支"><span class="toc-number">2.5.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新分支并立即切换到新分支"><span class="toc-number">2.6.</span> <span class="toc-text">创建新分支并立即切换到新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除分支"><span class="toc-number">2.7.</span> <span class="toc-text">删除分支</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门"><span class="toc-number">1.</span> <span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">2.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程库信息"><span class="toc-number">2.1.</span> <span class="toc-text">查看远程库信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看本地分支"><span class="toc-number">2.2.</span> <span class="toc-text">查看本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程分支"><span class="toc-number">2.3.</span> <span class="toc-text">查看远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建本地分支"><span class="toc-number">2.4.</span> <span class="toc-text">创建本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换分支"><span class="toc-number">2.5.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新分支并立即切换到新分支"><span class="toc-number">2.6.</span> <span class="toc-text">创建新分支并立即切换到新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推送本地分支"><span class="toc-number">2.7.</span> <span class="toc-text">推送本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取远程分支"><span class="toc-number">2.8.</span> <span class="toc-text">获取远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新本地分支"><span class="toc-number">2.9.</span> <span class="toc-text">更新本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并分支"><span class="toc-number">2.10.</span> <span class="toc-text">合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除本地分支"><span class="toc-number">2.11.</span> <span class="toc-text">删除本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除远程分支"><span class="toc-number">2.12.</span> <span class="toc-text">删除远程分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打标签-打版本号"><span class="toc-number">3.</span> <span class="toc-text">打标签(打版本号)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显示已有标签"><span class="toc-number">3.1.</span> <span class="toc-text">显示已有标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建标签"><span class="toc-number">3.2.</span> <span class="toc-text">新建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看相应标签的版本信息"><span class="toc-number">3.3.</span> <span class="toc-text">查看相应标签的版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除标签"><span class="toc-number">3.4.</span> <span class="toc-text">删除标签</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -358,7 +367,16 @@
     
     
     
-    <div class="total-archive"> Total : 3 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
     
     <div class="post-archive">
     
@@ -370,12 +388,17 @@
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2018/01/09/english/" >English</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2018/01/09/redux-form/" >使用Redux Form快速构建表单的redux数据流</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/git-commmand/" >git常用命令</a>
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/git-commmand/" >Git常用命令</a>
         </li>
     
     
@@ -387,6 +410,8 @@
   </div>
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">English</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
