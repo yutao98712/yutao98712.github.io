@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        git常用命令 · Yutt blog
+        使用Redux Form快速构建表单的redux数据流 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -72,7 +72,7 @@
                 <a href="/" >Yutt&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">git常用命令</a>
+                <a href="#" class="post-name">使用Redux Form快速构建表单的redux数据流</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            git常用命令
+            使用Redux Form快速构建表单的redux数据流
             <!-- 404 -->
             
         </h1>
@@ -111,14 +111,18 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = git>git</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = react>react</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = redux>redux</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = react-native>react-native</a>
     
 </div>
             
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/08</span>
+                <span class="post-intro-time">2018/01/09</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -201,53 +205,36 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>git是一个分布式版本控制工具，与CVS、SVN一类的集中式控制工具不同就，分布式版本库不需要服务器端软件，就可以运作版本控制。除此之外，git和其他版本控制工具还有不少的差别，git本身关心文件的整体性是否又改变，但多数的版本控制系统如CVS则再无文件内容的差异；git更像一个文件系统，直接在本机上获取数据而不必链接到主机端，每个开发者都拥有全部开发历史的本地副本。但是如果要与小伙伴们合作开发，还是需要将changes提交到远程的<em>代码仓库</em>（如<a href="https://github.com" target="_blank" rel="noopener">github</a>、<a href="https://gitee.com" target="_blank" rel="noopener">码云</a>、<a href="https://about.gitlab.com" target="_blank" rel="noopener">gitlab</a>、<a href="https://coding.net" target="_blank" rel="noopener">coding</a>）。这些changes可以作为新增的开发分支导入，也可以与本地开发分支合并。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ul>
-<li><strong>初始化本地仓库</strong></li>
-</ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+        <p>无论再那种应用中，表单都是一种常见的提交数据的方式，在 reac 或 react native 中也不例外。但是，当通过 redux 来管理应用的数据之后，该如何来构建表单的数据流呢？或者更简单的说，对于使用 redux 处理表单的数据，需要哪些 Action 呢？经过简单的思考，可以想到这些 Action:</p>
 <ul>
-<li><strong>把要提交的changes放到暂存区</strong></li>
+<li>表单组件挂载时，初始化（或者说创建）表单数据；</li>
+<li>用户更改表单数据时，修改相应的 state 的值；</li>
+<li>表单数据同步验证；<br>…..</li>
+<li>离开表单界面时，销毁数据</li>
 </ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>将暂存区的所有changes提交到分支</strong></li>
-</ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"Initial Commit"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>添加远程仓库（origin为远程仓库的名字）</strong></li>
-</ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:uername/reponsitory.git</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>将本地库的内容（master分支）推送到远程库（origin）,-u选项可以将远程库与本地库的分支关联起来</strong></li>
-</ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>无论一个项目是否是由多人合作开发，分支管理都有其存在的必要性。一般来说，除却仓库初始化时会自动建立主分支（即master分支），以后的每一次开发或迭代都需要基于自己创建的开发分支，当开发分支上的项目确认没有bug之后，才能够和master分支合并。可以想象，如果在开发分支上的代码出现了难以处理的bug的时候，我们依然可以切换回master分支或者其他分支来获取能正常运行的项目。</p>
-<h3 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
-<h3 id="查看本地分支"><a href="#查看本地分支" class="headerlink" title="查看本地分支"></a>查看本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
-<h3 id="查看远程分支"><a href="#查看远程分支" class="headerlink" title="查看远程分支"></a>查看远程分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -r</span><br></pre></td></tr></table></figure>
-<h3 id="创建本地分支"><a href="#创建本地分支" class="headerlink" title="创建本地分支"></a>创建本地分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch [name]</span><br></pre></td></tr></table></figure>
-<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [name]</span><br></pre></td></tr></table></figure>
-<h3 id="创建新分支并立即切换到新分支"><a href="#创建新分支并立即切换到新分支" class="headerlink" title="创建新分支并立即切换到新分支"></a>创建新分支并立即切换到新分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b [name]</span><br></pre></td></tr></table></figure>
-<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d [name]</span><br><span class="line">git branch -D [name]</span><br></pre></td></tr></table></figure>
-<p>-d选项只能删除已合并的分支</p>
+<p>Rdux Form 的作用正是通过 React 高阶组件的方式，自动创建这些数据流。由于高阶组件的本质是纯函数，不会受到原组件的结构影响，所以即使 React Native 中没有 form 相关的概念，依然适用。由于官网已经给出了 react 的相关例子，因此我在记录时，改用 React Native，同时在例子中配合使用了 immutable。</p>
+<h3 id="将-form-加入到-reducer-中"><a href="#将-form-加入到-reducer-中" class="headerlink" title="将 form 加入到 reducer 中"></a>将 form 加入到 reducer 中</h3><p>redux/reducers/index.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux-immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; reducer <span class="keyword">as</span> form &#125; <span class="keyword">from</span> <span class="string">'redux-form/immutable'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appReducers = combineReducers(&#123;</span><br><span class="line">  <span class="comment">// ...你的其他reducers</span></span><br><span class="line">  form</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用-Form-高阶组件包裹原组件"><a href="#使用-Form-高阶组件包裹原组件" class="headerlink" title="使用 Form 高阶组件包裹原组件"></a>使用 Form 高阶组件包裹原组件</h3><p>containers/SendMessage.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SendMessageForm = reduxForm(&#123; <span class="attr">form</span>: <span class="string">'message'</span> &#125;)(SendMessageView);</span><br></pre></td></tr></table></figure></p>
+<p>高阶组键一般采用<em>柯里化</em>的方式传递参数，当前步骤需要两个参数，这里的 SendMessageView 为表单界面的 UI 组件</p>
+<h3 id="使用-Field-组建包裹表单控件（如-Input-Select…）"><a href="#使用-Field-组建包裹表单控件（如-Input-Select…）" class="headerlink" title="使用 Field 组建包裹表单控件（如 Input,Select…）"></a>使用 Field 组建包裹<em>表单控件</em>（如 Input,Select…）</h3><p>containers/SendMessage.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Field</span><br><span class="line">  name=<span class="string">"theme"</span></span><br><span class="line">  component=&#123;CommonInput&#125;</span><br><span class="line">  placeholder=<span class="string">"请输入主题"</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>将CommonInput作为component属性的参数传入，如果CommonInput也需要某写属性，可直接作为Field的属性传入。同时，我也打印了日志文件的输出（通过<a href="https://redux-saga.js.org/docs/advanced/FutureActions.html" target="_blank" rel="noopener">redux-saga</a>创建的一个简单日志），可以“监听”redux的一举一动。<br><strong>日志：</strong> action {type: “@@redux-form/REGISTER_FIELD”, meta: {…}, payload: {…}}</p>
+<h3 id="改造表单控件"><a href="#改造表单控件" class="headerlink" title="改造表单控件"></a>改造表单控件</h3><p>components/CommonInput.js<br><strong>改造前</strong><br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Input &#125; <span class="keyword">from</span> <span class="string">'teaset'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入框</span></span><br><span class="line"><span class="keyword">const</span> CommonInput = (&#123;</span><br><span class="line">  placeholder = <span class="literal">null</span>,</span><br><span class="line">  value = <span class="literal">null</span>,</span><br><span class="line">  onChangeText = <span class="literal">null</span>,</span><br><span class="line">  width = <span class="number">150</span>,</span><br><span class="line">  height = <span class="number">34</span>,</span><br><span class="line">  ...rest</span><br><span class="line">&#125;) =&gt; (</span><br><span class="line">  &lt;Input</span><br><span class="line">    style=&#123;&#123; width, height &#125;&#125;</span><br><span class="line">    placeholder=&#123;placeholder&#125;</span><br><span class="line">    value=&#123;value&#125;</span><br><span class="line">    onChangeText=&#123;onChangeText&#125;</span><br><span class="line">    &#123;...rest&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p><strong>改造后</strong><br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CommonInput = (&#123;</span><br><span class="line">  placeholder = <span class="literal">null</span>,</span><br><span class="line">  width = <span class="number">150</span>,</span><br><span class="line">  height = <span class="number">34</span>,</span><br><span class="line">  input,</span><br><span class="line">  ...rest</span><br><span class="line">&#125;) =&gt; (</span><br><span class="line">  &lt;Input</span><br><span class="line">    style=&#123;&#123; width, height &#125;&#125;</span><br><span class="line">    placeholder=&#123;placeholder&#125;</span><br><span class="line">    value=&#123;input &amp;&amp; input.value ? input.value : <span class="literal">null</span>&#125;</span><br><span class="line">    onChangeText=&#123;inputText =&gt; input.onChange(inputText)&#125;</span><br><span class="line">    &#123;...rest&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>通过redux-form自动传入的属性input，我们可以获取和修改相应的state。<br><strong>日志：</strong><br>action {type: “@@redux-form/CHANGE”, meta: {…}, payload: “S”}</p>
+<p>action {type: “@@redux-form/CHANGE”, meta: {…}, payload: “Sd”}</p>
+<p>action {type: “@@redux-form/CHANGE”, meta: {…}, payload: “Sdf”}</p>
+<h3 id="添加表单同步验证"><a href="#添加表单同步验证" class="headerlink" title="添加表单同步验证"></a>添加表单同步验证</h3><p>containers/SendMessage.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> validate = <span class="function"><span class="params">values</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> errors = &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (!values.get(<span class="string">'theme'</span>)) &#123;</span><br><span class="line">    errors.theme = <span class="string">'Required'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> errors;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> SendMessageForm = reduxForm(&#123;</span><br><span class="line">  form: <span class="string">'message'</span>,</span><br><span class="line">  validate</span><br><span class="line">&#125;)(SendMessageView);</span><br></pre></td></tr></table></figure></p>
+<p><strong>日志：</strong> action {type: “@@redux-form/UPDATE_SYNC_ERRORS”, meta: {…}, payload: {…}}</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/01/09/redux-form/" title= 使用Redux Form快速构建表单的redux数据流 >
-                    <span>Next Post</span>
-                    <span>使用Redux Form快速构建表单的redux数据流</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/01/07/hello-world/" title= Hello World >
+                <a href= "/2018/01/08/git-commmand/" title= git常用命令 >
                     <span>Previous Post</span>
-                    <span>Hello World</span>
+                    <span>git常用命令</span>
                 </a>
             </li>
         
@@ -317,7 +304,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门"><span class="toc-number">1.</span> <span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">2.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程库信息"><span class="toc-number">2.1.</span> <span class="toc-text">查看远程库信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看本地分支"><span class="toc-number">2.2.</span> <span class="toc-text">查看本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程分支"><span class="toc-number">2.3.</span> <span class="toc-text">查看远程分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建本地分支"><span class="toc-number">2.4.</span> <span class="toc-text">创建本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换分支"><span class="toc-number">2.5.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新分支并立即切换到新分支"><span class="toc-number">2.6.</span> <span class="toc-text">创建新分支并立即切换到新分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除分支"><span class="toc-number">2.7.</span> <span class="toc-text">删除分支</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#将-form-加入到-reducer-中"><span class="toc-number">1.</span> <span class="toc-text">将 form 加入到 reducer 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Form-高阶组件包裹原组件"><span class="toc-number">2.</span> <span class="toc-text">使用 Form 高阶组件包裹原组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Field-组建包裹表单控件（如-Input-Select…）"><span class="toc-number">3.</span> <span class="toc-text">使用 Field 组建包裹表单控件（如 Input,Select…）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改造表单控件"><span class="toc-number">4.</span> <span class="toc-text">改造表单控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加表单同步验证"><span class="toc-number">5.</span> <span class="toc-text">添加表单同步验证</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
