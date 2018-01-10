@@ -225,7 +225,7 @@
 <p>action {type: “@@redux-form/CHANGE”, meta: {…}, payload: “Sdf”}</p>
 <h3 id="添加表单同步验证"><a href="#添加表单同步验证" class="headerlink" title="添加表单同步验证"></a>添加表单同步验证</h3><p>containers/SendMessage.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> validate = <span class="function"><span class="params">values</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> errors = &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (!values.get(<span class="string">'theme'</span>)) &#123;</span><br><span class="line">    errors.theme = <span class="string">'Required'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> errors;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> SendMessageForm = reduxForm(&#123;</span><br><span class="line">  form: <span class="string">'message'</span>,</span><br><span class="line">  validate</span><br><span class="line">&#125;)(SendMessageView);</span><br></pre></td></tr></table></figure></p>
 <p><strong>日志：</strong> action {type: “@@redux-form/UPDATE_SYNC_ERRORS”, meta: {…}, payload: {…}}</p>
-
+<h2 id="通过formValueSelect快速获取字段"><a href="#通过formValueSelect快速获取字段" class="headerlink" title="通过formValueSelect快速获取字段"></a>通过formValueSelect快速获取字段</h2>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -311,7 +311,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#将-form-加入到-reducer-中"><span class="toc-number">1.</span> <span class="toc-text">将 form 加入到 reducer 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Form-高阶组件包裹原组件"><span class="toc-number">2.</span> <span class="toc-text">使用 Form 高阶组件包裹原组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Field-组建包裹表单控件（如-Input-Select…）"><span class="toc-number">3.</span> <span class="toc-text">使用 Field 组建包裹表单控件（如 Input,Select…）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改造表单控件"><span class="toc-number">4.</span> <span class="toc-text">改造表单控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加表单同步验证"><span class="toc-number">5.</span> <span class="toc-text">添加表单同步验证</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#将-form-加入到-reducer-中"><span class="toc-number">1.</span> <span class="toc-text">将 form 加入到 reducer 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Form-高阶组件包裹原组件"><span class="toc-number">2.</span> <span class="toc-text">使用 Form 高阶组件包裹原组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-Field-组建包裹表单控件（如-Input-Select…）"><span class="toc-number">3.</span> <span class="toc-text">使用 Field 组建包裹表单控件（如 Input,Select…）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改造表单控件"><span class="toc-number">4.</span> <span class="toc-text">改造表单控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加表单同步验证"><span class="toc-number">5.</span> <span class="toc-text">添加表单同步验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过formValueSelect快速获取字段"><span class="toc-number"></span> <span class="toc-text">通过formValueSelect快速获取字段</span></a>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -361,7 +361,22 @@
     
     
     
-    <div class="total-archive"> Total : 4 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 5 </div>
     
     <div class="post-archive">
     
@@ -370,6 +385,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2018/01/10/redux-saga/" >Redux Saga常用API</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -396,9 +416,9 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">English</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">English</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">react</a></span>
     
