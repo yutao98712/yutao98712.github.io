@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Yutt blog
+        LeetCode 刷题 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -58,6 +58,8 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
@@ -65,27 +67,71 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yutt&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">LeetCode 刷题</a>
+            </div>
+    </div>
+    
     <a class="home-link" href=/>Yutt's Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/postImg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            LeetCode 刷题
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/01/11</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -153,192 +199,53 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/11/leet-code/" >
-                
-                    <span>LeetCode 刷题</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/11/leet-code/" >
-                <div class="abstract-content">
-                    题目均源自 LeetCode
-EasyFind Anagram MappingsGiven two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
-We want to find an index mapping P, from A to B. A mapping P[i] = j means...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/11</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/10/redux-saga/" >
-                
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>题目均源自 <a href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a></p>
+<h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><h3 id="Find-Anagram-Mappings"><a href="#Find-Anagram-Mappings" class="headerlink" title="Find Anagram Mappings"></a>Find Anagram Mappings</h3><p>Given two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.</p>
+<p>We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j.</p>
+<p>These lists A and B may contain duplicates. If there are multiple answers, output any of them.</p>
+<p>For example, given</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">12</span>, <span class="number">28</span>, <span class="number">46</span>, <span class="number">32</span>, <span class="number">50</span>]</span><br><span class="line">B = [<span class="number">50</span>, <span class="number">12</span>, <span class="number">32</span>, <span class="number">46</span>, <span class="number">28</span>]</span><br></pre></td></tr></table></figure>
+<p>We should return<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
+<p>as P[0] = 1 because the 0th element of A appears at B[1], and P[1] = 4 because the 1st element of A appears at B[4], and so on.</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anagramMappings = <span class="function"><span class="keyword">function</span>(<span class="params">A, B</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.map(<span class="function"><span class="params">item</span> =&gt;</span> B.indexOf(item));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Hamming-Distance"><a href="#Hamming-Distance" class="headerlink" title="Hamming Distance"></a>Hamming Distance</h3><p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
+<p>Given two integers x and y, calculate the Hamming distance.</p>
+<p>Note:<br>0 ≤ x, y &lt; 231.</p>
+<p>Example:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: x = <span class="number">1</span>, y = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">Output: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"><span class="number">1</span>   (<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>)</span><br><span class="line"><span class="number">4</span>   (<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>)</span><br><span class="line">       ↑   ↑</span><br></pre></td></tr></table></figure></p>
+<p>The above arrows point to positions where the corresponding bits are different.</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x ^ y).toString(<span class="number">2</span>).replace(<span class="regexp">/0/g</span>, <span class="string">''</span>).length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如何处理负数呢？<br>javascript中没有无符号位的数，因此在处理负数时，通过&gt;&gt;&gt;操作符先将其转换为无符号的等价形式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((x ^ y) &gt;&gt;&gt; <span class="number">0</span>).toString(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/01/10/redux-saga/" title= Redux Saga常用API >
+                    <span>Previous Post</span>
                     <span>Redux Saga常用API</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/10/redux-saga/" >
-                <div class="abstract-content">
-                    
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = redux>redux</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/10</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/09/english/" >
-                
-                    <span>English</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/09/english/" >
-                <div class="abstract-content">
-                    2018-1-9Many people was attracted by her engaging smile.
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-Michelangelo carved in marble.
-The house has a superb staircase made from oak and marble.
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
 
-He was, on his own admission, impulsive(adj. 冲动的,任性的)  by nature.
-Students apply for admission to ...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = English>English</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/09</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/09/redux-form/" >
-                
-                    <span>使用Redux Form快速构建表单的redux数据流</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/09/redux-form/" >
-                <div class="abstract-content">
-                    无论再那种应用中，表单都是一种常见的提交数据的方式，在 reac 或 react native 中也不例外。但是，当通过 redux 来管理应用的数据之后，该如何来构建表单的数据流呢？或者更简单的说，对于使用 redux 处理表单的数据，需要哪些 Action 呢？经过简单的思考，可以想到这些 Action:
+    <!--PC版-->
 
-表单组件挂载时，初始化（或者说创建）表单数据；
-用户更改表单数据时，修改相应的 state 的值；
-表单数据同步验证；…..
-离开表单界面时，销毁数据
 
-Rdux Form 的作用...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = redux>redux</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = react>react</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = react-native>react-native</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/09</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/08/git-commmand/" >
-                
-                    <span>Git常用命令</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/08/git-commmand/" >
-                <div class="abstract-content">
-                    git是一个分布式版本控制工具，与CVS、SVN一类的集中式控制工具不同就，分布式版本库不需要服务器端软件，就可以运作版本控制。除此之外，git和其他版本控制工具还有不少的差别，git本身关心文件的整体性是否又改变，但多数的版本控制系统如CVS则再无文件内容的差异；git更像一个文件系统，直接在本机上获取数据而不必链接到主机端，每个开发者都拥有全部开发历史的本地副本。但是如果要与小伙伴们合作开发，还是需要将changes提交到远程的代码仓库（如github、码云、gitlab、coding...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = git>git</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/08</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/07/hello-world/" >
-                
-                    <span>Hello World</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/07/hello-world/" >
-                <div class="abstract-content">
-                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/07</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -386,6 +293,13 @@ Quick StartCreate a new post1$ hexo new "My New Post...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Easy"><span class="toc-number">1.</span> <span class="toc-text">Easy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Find-Anagram-Mappings"><span class="toc-number">1.1.</span> <span class="toc-text">Find Anagram Mappings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hamming-Distance"><span class="toc-number">1.2.</span> <span class="toc-text">Hamming Distance</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

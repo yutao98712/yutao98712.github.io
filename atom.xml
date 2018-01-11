@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-10T02:15:12.192Z</updated>
+  <updated>2018-01-11T01:45:13.517Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 刷题</title>
+    <link href="http://yoursite.com/2018/01/11/leet-code/"/>
+    <id>http://yoursite.com/2018/01/11/leet-code/</id>
+    <published>2018-01-11T00:15:41.000Z</published>
+    <updated>2018-01-11T01:45:13.517Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目均源自 <a href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode</a></p><h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><h3 id="Find-Anagram-Mappings"><a href="#Find-Anagram-Mappings" class="headerlink" title="Find Anagram Mappings"></a>Find Anagram Mappings</h3><p>Given two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.</p><p>We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j.</p><p>These lists A and B may contain duplicates. If there are multiple answers, output any of them.</p><p>For example, given</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">12</span>, <span class="number">28</span>, <span class="number">46</span>, <span class="number">32</span>, <span class="number">50</span>]</span><br><span class="line">B = [<span class="number">50</span>, <span class="number">12</span>, <span class="number">32</span>, <span class="number">46</span>, <span class="number">28</span>]</span><br></pre></td></tr></table></figure><p>We should return<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure></p><p>as P[0] = 1 because the 0th element of A appears at B[1], and P[1] = 4 because the 1st element of A appears at B[4], and so on.</p><hr><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anagramMappings = <span class="function"><span class="keyword">function</span>(<span class="params">A, B</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.map(<span class="function"><span class="params">item</span> =&gt;</span> B.indexOf(item));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="Hamming-Distance"><a href="#Hamming-Distance" class="headerlink" title="Hamming Distance"></a>Hamming Distance</h3><p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p><p>Given two integers x and y, calculate the Hamming distance.</p><p>Note:<br>0 ≤ x, y &lt; 231.</p><p>Example:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: x = <span class="number">1</span>, y = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">Output: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"><span class="number">1</span>   (<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>)</span><br><span class="line"><span class="number">4</span>   (<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>)</span><br><span class="line">       ↑   ↑</span><br></pre></td></tr></table></figure></p><p>The above arrows point to positions where the corresponding bits are different.</p><hr><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x ^ y).toString(<span class="number">2</span>).replace(<span class="regexp">/0/g</span>, <span class="string">''</span>).length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>如何处理负数呢？<br>javascript中没有无符号位的数，因此在处理负数时，通过&gt;&gt;&gt;操作符先将其转换为无符号的等价形式</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((x ^ y) &gt;&gt;&gt; <span class="number">0</span>).toString(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;题目均源自 &lt;a href=&quot;https://leetcode.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LeetCode&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Easy&quot;&gt;&lt;a href=&quot;#Easy&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Redux Saga常用API</title>
@@ -74,9 +98,9 @@
     </summary>
     
     
-      <category term="react" scheme="http://yoursite.com/tags/react/"/>
-    
       <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
     
       <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
     
