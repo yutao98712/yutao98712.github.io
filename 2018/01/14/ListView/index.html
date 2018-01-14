@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        React Native 列表组件 · Yutt blog
+        
+    </title>
+    <link rel="icon" href= /assets/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171227 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yutt&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">React Native 列表组件</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Yutt's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(/assets/postImg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            React Native 列表组件
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = react-native>react-native</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/01/14</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>React Native 提供了三种列表组件，分别是：ListView，FlatList 和 SectionList，由于 ListView 已经被弃用，便不再进行详细的说明，本章节主要介绍 FlatList 和 SectionList 的常用属性。</p>
+<h2 id="FaltList"><a href="#FaltList" class="headerlink" title="FaltList"></a>FaltList</h2><p>高性能的简单列表组件，具有以下便利的特性：</p>
+<ul>
+<li>完全跨平台；</li>
+<li>支持水平布局模式；</li>
+<li>行组件显示或隐藏时可配置回调事件；</li>
+<li>支持单独的头部组件；</li>
+<li>支持单独的尾部组件；</li>
+<li>支持自定义行间分隔线；</li>
+<li>支持下拉刷新；</li>
+<li>支持上拉加载；</li>
+<li>支持跳转到指定行（ScrollToIndex）。</li>
+</ul>
+<h3 id="官方例子解析（解决惰性渲染问题）"><a href="#官方例子解析（解决惰性渲染问题）" class="headerlink" title="官方例子解析（解决惰性渲染问题）"></a>官方例子解析（解决惰性渲染问题）</h3><p>由于 FlatList 的惰性渲染，当除了 data 属性以外的数据改变时，可能无法导致界面的重新渲染，因此要通过 extraData 属性来解决该问题,下面上代码.</p>
+<p>/components/MyList.js</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; View, Text, TouchableOpacity &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyListItem</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  _onPress = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.props._onPressItem(<span class="keyword">this</span>.props.id);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> textColor = <span class="keyword">this</span>.props.selected ? <span class="string">'red'</span> : <span class="string">'black'</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;TouchableOpacity onPress=&#123;<span class="keyword">this</span>._onPress&#125;&gt;</span><br><span class="line">        &lt;View&gt;</span><br><span class="line">          &lt;Text style=&#123;&#123; <span class="attr">color</span>: textColor &#125;&#125;&gt;&#123;<span class="keyword">this</span>.props.title&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">      &lt;<span class="regexp">/TouchableOpacity&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const MyList = &#123;</span></span><br><span class="line"><span class="regexp">  MyListItem</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">export default MyList;</span></span><br></pre></td></tr></table></figure>
+<p>/containers/Devices.js</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; FlatList &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> MyList <span class="keyword">from</span> <span class="string">'../components/MyListItem'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">'台式机'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">'笔记本'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">title</span>: <span class="string">'苹果手机'</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Devices</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      selected: <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 指定是用id代替key</span></span><br><span class="line">  _keyExtrator = <span class="function"><span class="params">item</span> =&gt;</span> item.id;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// onPress事件触发，构造列表项可以被选中的效果</span></span><br><span class="line">  _onPressItem = <span class="function"><span class="params">id</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(id);</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> selected = <span class="keyword">new</span> <span class="built_in">Map</span>(prevState.selected);</span><br><span class="line">      selected.set(id, !selected.get(id));</span><br><span class="line">      <span class="built_in">console</span>.log(selected);</span><br><span class="line">      <span class="keyword">return</span> &#123; selected &#125;;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 列表项渲染</span></span><br><span class="line">  _renderItem = <span class="function">(<span class="params">&#123; item &#125;</span>) =&gt;</span> (</span><br><span class="line">    &lt;MyList.MyListItem</span><br><span class="line">      id=&#123;item.id&#125;</span><br><span class="line">      _onPressItem=&#123;<span class="keyword">this</span>._onPressItem&#125;</span><br><span class="line">      selected=&#123;!!<span class="keyword">this</span>.state.selected.get(item.id)&#125;</span><br><span class="line">      title=&#123;item.title&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;FlatList</span><br><span class="line">        data=&#123;data&#125;</span><br><span class="line">        extraData=&#123;<span class="keyword">this</span>.state&#125;</span><br><span class="line">        keyExtractor=&#123;<span class="keyword">this</span>._keyExtrator&#125;</span><br><span class="line">        renderItem=&#123;<span class="keyword">this</span>._renderItem&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Devices;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，构造了“列表项被点击选中时，其内容变红色，再次点击，取消中选中时，其内容变回黑色”这样一个简单的效果,通过父组中 state.selected 来记录相应的列表项是否被选中，同时将改值赋予 FlatList 的 extraData 属性，使其可以被 FlatList 识别。同还用到了其他属性：</p>
+<ul>
+<li>data (指定填充列表的数据，通常为数组)；</li>
+<li>keyExtractor (react 规定所有数据为数组类型的组件，数组的每一项必须指定一个 key 属性以区别于其他数组项，类似与数据库中的主键，通过该属性，可以自己定制主键属性)。</li>
+</ul>
+<p>以此例子为基础，我们来展开对其它属性的学习。</p>
+<h3 id="UI-属性"><a href="#UI-属性" class="headerlink" title="UI 属性"></a>UI 属性</h3><ul>
+<li>ItemSeparatorComponent?: ?ReactClass<any> （行与行之间的分隔线组件。不会出现在第一行之前和最后一行之后。）</any></li>
+<li>ListEmptyComponent?: ?ReactClass<any> | React.Element<any>(列表为空时渲染该组件。可以是 React Component, 也可以是一个 render 函数， 或者渲染好的 element。)</any></any></li>
+<li>ListFooterComponent?: ?ReactClass<any> (尾部组件)</any></li>
+<li>ListHeaderComponent?: ?ReactClass<any> (头部组件)</any></li>
+</ul>
+<p>/components/MyList.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const ItemSeparatorComponent = () =&gt; (</span><br><span class="line">  &lt;View style=&#123;CommonStyles.separatorLine&#125; /&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const ListEmptyComponent = () =&gt; (</span><br><span class="line">  &lt;View style=&#123;&#123; flex: 1, alignItems: &apos;center&apos;, marginTop: 20 &#125;&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;CommonStyles.text&#125;&gt;当前没有任何数据!&lt;/Text&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const ListHeaderComponent = (&#123; length = 0 &#125;) =&gt; (</span><br><span class="line">  &lt;View style=&#123;CommonStyles.listHeaderComponent&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;CommonStyles.smallText&#125;&gt;当前总共&#123;length&#125;条数据&lt;/Text&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const ListFooterComponent = () =&gt; (</span><br><span class="line">  &lt;View style=&#123;CommonStyles.listHeaderComponent&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;CommonStyles.smallText&#125;&gt;已经到最下面了&lt;/Text&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const MyList = &#123;</span><br><span class="line">  MyListItem,</span><br><span class="line">  ItemSeparatorComponent,</span><br><span class="line">  ListEmptyComponent,</span><br><span class="line">  ListHeaderComponent,</span><br><span class="line">  ListFooterComponent</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>/containers/Devices.js</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;FlatList</span><br><span class="line">      data=&#123;data&#125;</span><br><span class="line">      extraData=&#123;<span class="keyword">this</span>.state&#125;</span><br><span class="line">      keyExtractor=&#123;<span class="keyword">this</span>._keyExtrator&#125;</span><br><span class="line">      renderItem=&#123;<span class="keyword">this</span>._renderItem&#125;</span><br><span class="line">      ItemSeparatorComponent=&#123;MyList.ItemSeparatorComponent&#125;</span><br><span class="line">      ListEmptyComponent=&#123;MyList.ListEmptyComponent&#125;</span><br><span class="line">      ListHeaderComponent=&#123;&lt;MyList.ListHeaderComponent lenght=&#123;data.length&#125; /&gt;&#125;</span><br><span class="line">      ListFooterComponent=&#123;MyList.ListFooterComponent&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3>
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/01/11/leet-code/" title= LeetCode 刷题 >
+                    <span>Previous Post</span>
+                    <span>LeetCode 刷题</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:yutao98712@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/yutao98712" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FaltList"><span class="toc-number">1.</span> <span class="toc-text">FaltList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方例子解析（解决惰性渲染问题）"><span class="toc-number">1.1.</span> <span class="toc-text">官方例子解析（解决惰性渲染问题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UI-属性"><span class="toc-number">1.2.</span> <span class="toc-text">UI 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下拉刷新"><span class="toc-number">1.3.</span> <span class="toc-text">下拉刷新</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 7 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href= "/2018/01/14/ListView/" >React Native 列表组件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/11</span><a class="archive-post-title" href= "/2018/01/11/leet-code/" >LeetCode 刷题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2018/01/10/redux-saga/" >Redux Saga常用API</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2018/01/09/english/" >English</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2018/01/09/redux-form/" >使用Redux Form快速构建表单的redux数据流</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href= "/2018/01/08/git-commmand/" >Git常用命令</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span><a class="archive-post-title" href= "/2018/01/07/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">git</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">English</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">react</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
