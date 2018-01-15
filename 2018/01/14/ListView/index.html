@@ -237,7 +237,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const ItemSeparatorComponent = () =&gt; (</span><br><span class="line">  &lt;View style=&#123;CommonStyles.separatorLine&#125; /&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const ListEmptyComponent = () =&gt; (</span><br><span class="line">  &lt;View style=&#123;&#123; flex: 1, alignItems: &apos;center&apos;, marginTop: 20 &#125;&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;CommonStyles.text&#125;&gt;当前没有任何数据!&lt;/Text&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const ListHeaderComponent = (&#123; length = 0 &#125;) =&gt; (</span><br><span class="line">  &lt;View style=&#123;CommonStyles.listHeaderComponent&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;CommonStyles.smallText&#125;&gt;当前总共&#123;length&#125;条数据&lt;/Text&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const ListFooterComponent = () =&gt; (</span><br><span class="line">  &lt;View style=&#123;CommonStyles.listHeaderComponent&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;CommonStyles.smallText&#125;&gt;已经到最下面了&lt;/Text&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">const MyList = &#123;</span><br><span class="line">  MyListItem,</span><br><span class="line">  ItemSeparatorComponent,</span><br><span class="line">  ListEmptyComponent,</span><br><span class="line">  ListHeaderComponent,</span><br><span class="line">  ListFooterComponent</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>/containers/Devices.js</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;FlatList</span><br><span class="line">      data=&#123;data&#125;</span><br><span class="line">      extraData=&#123;<span class="keyword">this</span>.state&#125;</span><br><span class="line">      keyExtractor=&#123;<span class="keyword">this</span>._keyExtrator&#125;</span><br><span class="line">      renderItem=&#123;<span class="keyword">this</span>._renderItem&#125;</span><br><span class="line">      ItemSeparatorComponent=&#123;MyList.ItemSeparatorComponent&#125;</span><br><span class="line">      ListEmptyComponent=&#123;MyList.ListEmptyComponent&#125;</span><br><span class="line">      ListHeaderComponent=&#123;&lt;MyList.ListHeaderComponent lenght=&#123;data.length&#125; /&gt;&#125;</span><br><span class="line">      ListFooterComponent=&#123;MyList.ListFooterComponent&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3>
+<h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><ul>
+<li><strong>onRefresh</strong>?: ?() =&gt; void (如果设置了此选项，则会在列表头部添加一个标准的RefreshControl控件，以便实现“下拉刷新”的功能。同时你需要正确设置refreshing属性。)</li>
+<li><strong>refreshing</strong>?: ?boolean (在等待加载新数据时将此属性设为true，列表就会显示出一个正在加载的符号。)</li>
+</ul>
+<p>如果不喜欢默认的刷新器的颜色，可通过指定属性refreshControl来定制舒心器</p>
+<p>/components/MyList.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyRefreshControl = <span class="function">(<span class="params">&#123; refreshing = <span class="literal">false</span>, _onRefresh &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;RefreshControl</span><br><span class="line">    refreshing=&#123;refreshing&#125;</span><br><span class="line">    onRefresh=&#123;_onRefresh&#125;</span><br><span class="line">    title=<span class="string">"正在刷新界面"</span></span><br><span class="line">    tintColor=&#123;AppColor.THEME&#125;</span><br><span class="line">    titleColor=&#123;AppColor.FONT&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>/containers/Devices.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下拉刷新事件</span></span><br><span class="line">_onRefresh = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'refresh'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&lt;FlatList</span><br><span class="line">  data=&#123;data&#125;</span><br><span class="line">  extraData=&#123;<span class="keyword">this</span>.state&#125;</span><br><span class="line">  keyExtractor=&#123;<span class="keyword">this</span>._keyExtrator&#125;</span><br><span class="line">  renderItem=&#123;<span class="keyword">this</span>._renderItem&#125;</span><br><span class="line">  ItemSeparatorComponent=&#123;MyList.ItemSeparatorComponent&#125;</span><br><span class="line">  ListEmptyComponent=&#123;MyList.ListEmptyComponent&#125;</span><br><span class="line">  ListHeaderComponent=&#123;</span><br><span class="line">    &lt;MyList.ListHeaderComponent lenght=&#123;data.length&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">  ListFooterComponent=&#123;MyList.ListFooterComponent&#125;</span><br><span class="line">  refreshControl=&#123;</span><br><span class="line">    &lt;MyList.MyRefreshControl</span><br><span class="line">      refreshing=&#123;<span class="literal">false</span>&#125;</span><br><span class="line">      _onRefresh=&#123;<span class="keyword">this</span>._onRefresh&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure></p>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -397,6 +404,10 @@
     
     
     
+    
+    
+    
+    
     <div class="total-archive"> Total : 7 </div>
     
     <div class="post-archive">
@@ -447,19 +458,19 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name"><a href= "#">git</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">English</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">git</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
+        <span class="sidebar-tag-name"><a href= "#">react</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">redux</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">react</a></span>
+        <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
