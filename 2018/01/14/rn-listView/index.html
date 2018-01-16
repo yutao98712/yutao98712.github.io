@@ -244,6 +244,12 @@
 <p>如果不喜欢默认的刷新器的颜色，可通过指定属性refreshControl来定制舒心器</p>
 <p>/components/MyList.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyRefreshControl = <span class="function">(<span class="params">&#123; refreshing = <span class="literal">false</span>, _onRefresh &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;RefreshControl</span><br><span class="line">    refreshing=&#123;refreshing&#125;</span><br><span class="line">    onRefresh=&#123;_onRefresh&#125;</span><br><span class="line">    title=<span class="string">"正在刷新界面"</span></span><br><span class="line">    tintColor=&#123;AppColor.THEME&#125;</span><br><span class="line">    titleColor=&#123;AppColor.FONT&#125;</span><br><span class="line">  /&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>/containers/Devices.js<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下拉刷新事件</span></span><br><span class="line">_onRefresh = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'refresh'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&lt;FlatList</span><br><span class="line">  data=&#123;data&#125;</span><br><span class="line">  extraData=&#123;<span class="keyword">this</span>.state&#125;</span><br><span class="line">  keyExtractor=&#123;<span class="keyword">this</span>._keyExtrator&#125;</span><br><span class="line">  renderItem=&#123;<span class="keyword">this</span>._renderItem&#125;</span><br><span class="line">  ItemSeparatorComponent=&#123;MyList.ItemSeparatorComponent&#125;</span><br><span class="line">  ListEmptyComponent=&#123;MyList.ListEmptyComponent&#125;</span><br><span class="line">  ListHeaderComponent=&#123;</span><br><span class="line">    &lt;MyList.ListHeaderComponent lenght=&#123;data.length&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">  ListFooterComponent=&#123;MyList.ListFooterComponent&#125;</span><br><span class="line">  refreshControl=&#123;</span><br><span class="line">    &lt;MyList.MyRefreshControl</span><br><span class="line">      refreshing=&#123;<span class="literal">false</span>&#125;</span><br><span class="line">      _onRefresh=&#123;<span class="keyword">this</span>._onRefresh&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="上拉加载"><a href="#上拉加载" class="headerlink" title="上拉加载"></a>上拉加载</h3><ul>
+<li><p><strong>onEndReached</strong>?: ?(info: {distanceFromEnd: number}) =&gt; void (当列表被滚动到距离内容最底部不足onEndReachedThreshold的距离时调用。)</p>
+</li>
+<li><p><strong>onEndReachedThreshold</strong>?: ?number (决定当距离内容最底部还有多远时触发onEndReached回调。注意此参数是一个比值而非像素单位。比如，0.5表示距离内容最底部的距离为当前列表可见长度的一半时触发。)</p>
+</li>
+</ul>
 
     </article>
     <!-- 前后页  -->
@@ -323,7 +329,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FaltList"><span class="toc-number">1.</span> <span class="toc-text">FaltList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方例子解析（解决惰性渲染问题）"><span class="toc-number">1.1.</span> <span class="toc-text">官方例子解析（解决惰性渲染问题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UI-属性"><span class="toc-number">1.2.</span> <span class="toc-text">UI 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下拉刷新"><span class="toc-number">1.3.</span> <span class="toc-text">下拉刷新</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FaltList"><span class="toc-number">1.</span> <span class="toc-text">FaltList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方例子解析（解决惰性渲染问题）"><span class="toc-number">1.1.</span> <span class="toc-text">官方例子解析（解决惰性渲染问题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UI-属性"><span class="toc-number">1.2.</span> <span class="toc-text">UI 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下拉刷新"><span class="toc-number">1.3.</span> <span class="toc-text">下拉刷新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上拉加载"><span class="toc-number">1.4.</span> <span class="toc-text">上拉加载</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -408,6 +414,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-archive"> Total : 7 </div>
     
     <div class="post-archive">
@@ -420,7 +432,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/14</span><a class="archive-post-title" href= "/2018/01/14/ListView/" >React Native 列表组件</a>
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href= "/2018/01/14/rn-listView/" >React Native 列表组件</a>
         </li>
     
     
@@ -458,19 +470,19 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">git</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">English</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">react</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">redux</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
