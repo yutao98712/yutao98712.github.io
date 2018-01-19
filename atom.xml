@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-16T01:39:44.076Z</updated>
+  <updated>2018-01-19T09:00:42.246Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 基础(学习Android的前置)</title>
+    <link href="http://yoursite.com/2018/01/19/java-study/"/>
+    <id>http://yoursite.com/2018/01/19/java-study/</id>
+    <published>2018-01-19T06:44:12.000Z</published>
+    <updated>2018-01-19T09:00:42.246Z</updated>
+    
+    <content type="html"><![CDATA[<p>在学习android之前，学要熟悉Java的基本语法、线程、IO概念……</p><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p>总共8基本类型，四个整型，两个浮点型，一种字符类型，还有一种布尔型。</p><ul><li>byte （8位）</li><li>short （16位）</li><li>int (32位)</li><li>long (64位)</li><li>float (32位)</li><li>double (64位)</li><li>boolean (true 或 false)</li><li>char (16位, 最小值\u0000, 最大值\uffff)</li></ul><h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i1 = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">byte</span> b = (<span class="keyword">byte</span>)i1;</span><br></pre></td></tr></table></figure><h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>Java 里使用 long 类型的数据一定要在数值后面加上 L，否则将作为整型解析：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> value = <span class="number">9223372036854775807L</span>;</span><br></pre></td></tr></table></figure></p><hr><p>a+b 是什么类型？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">short</span> b = <span class="number">2</span>;</span><br></pre></td></tr></table></figure></p><p>在java的世界里，如果比int类型小的类型做运算，java在编译的时候就会将它们统一强转成int类型。但是比int类型大的类型做运算，就会自动转换成它们中最大类型那个。</p><h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123; </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pupAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> age = <span class="number">0</span>;</span><br><span class="line">      age = age + <span class="number">7</span>;</span><br><span class="line">      System.out.println(<span class="string">"小狗的年龄是: "</span> + age);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      Test test = <span class="keyword">new</span> Test();</span><br><span class="line">      test.pupAge();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="实例变量"><a href="#实例变量" class="headerlink" title="实例变量"></a>实例变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span>&#123;</span><br><span class="line">   <span class="comment">// 这个实例变量对子类可见</span></span><br><span class="line">   <span class="keyword">public</span> String name;</span><br><span class="line">   <span class="comment">// 私有变量，仅在该类可见</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">double</span> salary;</span><br><span class="line">   <span class="comment">//在构造器中对name赋值</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Employee</span> <span class="params">(String empName)</span></span>&#123;</span><br><span class="line">      name = empName;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//设定salary的值</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSalary</span><span class="params">(<span class="keyword">double</span> empSal)</span></span>&#123;</span><br><span class="line">      salary = empSal;</span><br><span class="line">   &#125;  </span><br><span class="line">   <span class="comment">// 打印信息</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printEmp</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"名字 : "</span> + name );</span><br><span class="line">      System.out.println(<span class="string">"薪水 : "</span> + salary);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      Employee empOne = <span class="keyword">new</span> Employee(<span class="string">"RUNOOB"</span>);</span><br><span class="line">      empOne.setSalary(<span class="number">1000</span>);</span><br><span class="line">      empOne.printEmp();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="类变量-静态变量"><a href="#类变量-静态变量" class="headerlink" title="类变量(静态变量)"></a>类变量(静态变量)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="comment">//salary是静态的私有变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> salary;</span><br><span class="line">    <span class="comment">// DEPARTMENT是一个常量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEPARTMENT = <span class="string">"开发人员"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    salary = <span class="number">10000</span>;</span><br><span class="line">        System.out.println(DEPARTMENT+<span class="string">"平均工资:"</span>+salary);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Tips-1"><a href="#Tips-1" class="headerlink" title="Tips"></a>Tips</h3><p>静态方法中只调用静态方法或静态成员。</p><h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>JAVA 的类（外部类）有 2 种访问权限: public、default。</p><p>而方法和变量有 4 种：public、default、protected、private。</p><p>其中默认访问权限和 protected 很相似，有着细微的差别。</p><p> public 意味着任何地方的其他类都能访问。<br> default 则是同一个包的类可以访问。<br> protected 表示同一个包的类可以访问，其他的包的该类的子类也可以访问。<br> private 表示只有自己类能访问。<br>修饰符：abstract、static、final</p><p> abstract: 表示是抽象类。 使用对象：类、接口、方法<br> static: 可以当做普通类使用，而不用先实例化一个外部类。（用他修饰后，就成了静态内部类了）。 使用对象：类、变量、方法、初始化函数（注意：修饰类时只能修饰 内部类 ）<br> final: 表示类不可以被继承。 使用对象：类、变量、方法</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在学习android之前，学要熟悉Java的基本语法、线程、IO概念……&lt;/p&gt;
+&lt;h2 id=&quot;基本数据类型&quot;&gt;&lt;a href=&quot;#基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;基本数据类型&quot;&gt;&lt;/a&gt;基本数据类型&lt;/h2&gt;&lt;h3 id=&quot;内置数据类
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react-native-element</title>
+    <link href="http://yoursite.com/2018/01/19/react-native-element/"/>
+    <id>http://yoursite.com/2018/01/19/react-native-element/</id>
+    <published>2018-01-19T05:53:44.000Z</published>
+    <updated>2018-01-19T08:23:57.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单好用的 React Native 组件库。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;简单好用的 React Native 组件库。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
+  </entry>
   
   <entry>
     <title>React Native 列表组件</title>
@@ -36,9 +84,9 @@
     </summary>
     
     
-      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
-    
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
     
   </entry>
   
@@ -126,11 +174,11 @@
     </summary>
     
     
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
       <category term="react" scheme="http://yoursite.com/tags/react/"/>
     
       <category term="redux" scheme="http://yoursite.com/tags/redux/"/>
-    
-      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
     
   </entry>
   
