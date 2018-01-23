@@ -202,6 +202,7 @@
             <main class="main post-page">
     <article class="article-entry">
         <p>简单好用的 React Native 组件库。</p>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; List, ListItem &#125; <span class="keyword">from</span> <span class="string">'react-native-elements'</span>;</span><br><span class="line">list = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'aaa'</span>, <span class="attr">value</span>: <span class="string">'123'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'bbb'</span>, <span class="attr">value</span>: <span class="string">'346'</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ScrollView style=&#123;CommonStyles.container&#125;&gt;</span><br><span class="line">      &lt;List containerStyle=&#123;CommonStyles.detailList&#125;&gt;</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">this</span>.list.map(<span class="function">(<span class="params">l, i</span>) =&gt;</span> (</span><br><span class="line">            &lt;ListItem</span><br><span class="line">              key=&#123;i&#125;</span><br><span class="line">              title=&#123;l.name&#125;</span><br><span class="line">              rightTitle=&#123;l.value&#125;</span><br><span class="line">              hideChevron</span><br><span class="line">              containerStyle=&#123;CommonStyles.detailListItemContainer&#125;</span><br><span class="line">              wrapperStyle=&#123;CommonStyles.detailListItemWrapper&#125;</span><br><span class="line">              titleStyle=&#123;[CommonStyles.label, &#123; <span class="attr">marginLeft</span>: <span class="number">0</span> &#125;]&#125;</span><br><span class="line">              rightTitleStyle=&#123;CommonStyles.text&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">          ))</span><br><span class="line">        &#125;</span><br><span class="line">      &lt;<span class="regexp">/List&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>ScrollView&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- 前后页  -->
@@ -288,7 +289,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lists"><span class="toc-number">1.</span> <span class="toc-text">Lists</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.1.</span> <span class="toc-text">创建</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -407,8 +408,6 @@
     
     
     
-    
-    
     <div class="total-archive"> Total : 9 </div>
     
     <div class="post-archive">
@@ -418,6 +417,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/20</span><a class="archive-post-title" href= "/2018/01/20/additional-md/" >Additional</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -446,11 +450,6 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2018/01/09/english/" >English</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">01/09</span><a class="archive-post-title" href= "/2018/01/09/redux-form/" >使用Redux Form快速构建表单的redux数据流</a>
         </li>
     
@@ -469,21 +468,19 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">English</a></span>
+        <span class="sidebar-tag-name"><a href= "#">react</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">java</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">react</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
