@@ -201,7 +201,17 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于redux本身只支持同步数据流，对于异步数据流，需要通过中间件来解决, 学习中间件前，需要掌握ES6的。redux-saga作为一个完善的中间件，包括了监听，阻塞，派送未来的action, 获取当前state等等好用的API。</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h3 id="监听并且阻塞Action"><a href="#监听并且阻塞Action" class="headerlink" title="监听并且阻塞Action"></a>监听并且阻塞Action</h3><p>对于一个redux异步数据流，通常始与监听到一个指定的Action，然后自动执行接下来的数据流<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> action = <span class="keyword">yield</span> take(<span class="string">'Request'</span>);</span><br><span class="line"><span class="comment">//接下来可以使用call函数来执行指定的saga</span></span><br></pre></td></tr></table></figure></p>
+<p>take函数可以监听并阻塞一次Action,参数为Action的名称,该函数的返回值为Action的内容</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; takeEvery &#125; <span class="keyword">from</span> <span class="string">`redux-saga/effects`</span></span><br><span class="line"><span class="keyword">yield</span> takeEvery(<span class="string">'Request'</span>, fetchData,  ...args);</span><br><span class="line"><span class="comment">// 以上代码等同于:</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="comment">// 监听Action</span></span><br><span class="line">  <span class="keyword">const</span> action = <span class="keyword">yield</span> take(patternOrChannel)</span><br><span class="line">  <span class="comment">// 如果不想接下来的数据流被阻塞，可以使用fork，否则用call</span></span><br><span class="line">  <span class="keyword">yield</span> fork(saga, ...args.concat(action))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>takeEvery的用处如同其名称一样，每次该Action被派送时，都会被监听到。第一个参数也是Action的名称，第二个参数为监听到该Action时，需要执行的函数。这里我们间听到“Request”这个Action时，会出发fetchData方法,去获取服务器的数据。</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">yield</span> takeLatest(<span class="string">'USER_REQUESTED'</span>, fetchUser)</span><br></pre></td></tr></table></figure>
+<p>有时候用户可能会意外地多次触发了Action（例如提交表单的时候）,这可能造成用户频繁的访问服务器（重复提交表单），为了防止这种无意义的行为，可以使用takeLateast。takeLatest会将传入的saga作为一个task去执行，如果前一个task还没有执行完，又监听到了相同的Action，则会自动取消该task，因此最后执行的saga则是短时间内用户第一次的操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> takeLatest = <span class="function">(<span class="params">patternOrChannel, saga, ...args</span>) =&gt;</span> fork(<span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> lastTask</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> action = <span class="keyword">yield</span> take(patternOrChannel)</span><br><span class="line">    <span class="keyword">if</span> (lastTask) &#123;</span><br><span class="line">      <span class="keyword">yield</span> cancel(lastTask) <span class="comment">// cancel is no-op if the task has already terminated</span></span><br><span class="line">    &#125;</span><br><span class="line">    lastTask = <span class="keyword">yield</span> fork(saga, ...args.concat(action))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然在一般情况下，我们可以直接使用take更加简单粗暴的阻塞数据流，同样可以防止后面的表单提交数据流的执行。</p>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -287,7 +297,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">2.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监听并且阻塞Action"><span class="toc-number">2.1.</span> <span class="toc-text">监听并且阻塞Action</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -301,12 +311,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -466,19 +470,19 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
+        <span class="sidebar-tag-name"><a href= "#">java</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">react</a></span>
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">redux</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">java</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">react</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
