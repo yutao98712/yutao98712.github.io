@@ -211,7 +211,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">yield</span> takeLatest(<span class="string">'USER_REQUESTED'</span>, fetchUser)</span><br></pre></td></tr></table></figure>
 <p>有时候用户可能会意外地多次触发了Action（例如提交表单的时候）,这可能造成用户频繁的访问服务器（重复提交表单），为了防止这种无意义的行为，可以使用takeLateast。takeLatest会将传入的saga作为一个task去执行，如果前一个task还没有执行完，又监听到了相同的Action，则会自动取消该task，因此最后执行的saga则是短时间内用户第一次的操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> takeLatest = <span class="function">(<span class="params">patternOrChannel, saga, ...args</span>) =&gt;</span> fork(<span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> lastTask</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> action = <span class="keyword">yield</span> take(patternOrChannel)</span><br><span class="line">    <span class="keyword">if</span> (lastTask) &#123;</span><br><span class="line">      <span class="keyword">yield</span> cancel(lastTask) <span class="comment">// cancel is no-op if the task has already terminated</span></span><br><span class="line">    &#125;</span><br><span class="line">    lastTask = <span class="keyword">yield</span> fork(saga, ...args.concat(action))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>当然在一般情况下，我们可以直接使用take更加简单粗暴的阻塞数据流，同样可以防止后面的表单提交数据流的执行。</p>
-
+<h3 id="rece"><a href="#rece" class="headerlink" title="rece"></a>rece</h3><h3 id="put"><a href="#put" class="headerlink" title="put"></a>put</h3><h3 id="delay"><a href="#delay" class="headerlink" title="delay"></a>delay</h3><h3 id="cancel"><a href="#cancel" class="headerlink" title="cancel"></a>cancel</h3><h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><h3 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h3>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -297,7 +297,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">2.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监听并且阻塞Action"><span class="toc-number">2.1.</span> <span class="toc-text">监听并且阻塞Action</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">2.</span> <span class="toc-text">API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#监听并且阻塞Action"><span class="toc-number">2.1.</span> <span class="toc-text">监听并且阻塞Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rece"><span class="toc-number">2.2.</span> <span class="toc-text">rece</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#put"><span class="toc-number">2.3.</span> <span class="toc-text">put</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delay"><span class="toc-number">2.4.</span> <span class="toc-text">delay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cancel"><span class="toc-number">2.5.</span> <span class="toc-text">cancel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#call"><span class="toc-number">2.6.</span> <span class="toc-text">call</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fork"><span class="toc-number">2.7.</span> <span class="toc-text">fork</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -410,7 +410,20 @@
     
     
     
-    <div class="total-archive"> Total : 9 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 10 </div>
     
     <div class="post-archive">
     
@@ -419,6 +432,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href= "/2018/01/31/es7/" >ES7 新语法</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -470,19 +488,19 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">java</a></span>
+        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">java</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">react</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
