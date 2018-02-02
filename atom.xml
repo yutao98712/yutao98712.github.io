@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-31T05:59:06.446Z</updated>
+  <updated>2018-02-02T01:01:21.686Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Native Debugger</title>
+    <link href="http://yoursite.com/2018/02/02/react-native-debugger/"/>
+    <id>http://yoursite.com/2018/02/02/react-native-debugger/</id>
+    <published>2018-02-02T00:53:41.000Z</published>
+    <updated>2018-02-02T01:01:21.686Z</updated>
+    
+    <content type="html"><![CDATA[<p>RN集成了redux之后，测试工具必不可少。使用React Native Debugger可以完美解决该问题。</p><h2 id="安装（for-macOs）"><a href="#安装（for-macOs）" class="headerlink" title="安装（for macOs）"></a>安装（for macOs）</h2><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew update &amp;&amp; brew cask install react-native-debugger</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open <span class="string">"rndebugger://set-debugger-loc?host=localhost&amp;port=8081"</span></span><br></pre></td></tr></table></figure><p><strong>Then: </strong><br>在模拟器或真机上打开”Debug Js Remotely”选项</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;RN集成了redux之后，测试工具必不可少。使用React Native Debugger可以完美解决该问题。&lt;/p&gt;
+&lt;h2 id=&quot;安装（for-macOs）&quot;&gt;&lt;a href=&quot;#安装（for-macOs）&quot; class=&quot;headerlink&quot; title=&quot;安装（
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>ES7 新语法</title>
