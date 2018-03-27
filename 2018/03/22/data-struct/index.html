@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Yutt blog
+        数据结构 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -58,6 +58,8 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
@@ -65,27 +67,71 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yutt&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">数据结构</a>
+            </div>
+    </div>
+    
     <a class="home-link" href=/>Yutt's Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/postImg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            数据结构
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 理论>理论</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/03/22</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -153,42 +199,44 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] data) &#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, tmp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (data[i] &lt; data[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            tmp = data[i];</span><br><span class="line">            data[i] = data[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; data[j] &gt; tmp; j--)</span><br><span class="line">                data[j + <span class="number">1</span>] = data[j];</span><br><span class="line">            data[j + <span class="number">1</span>] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度为O(n^2)</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/03/26/operating-system/" title= 操作系统知识 >
+                    <span>Next Post</span>
+                    <span>操作系统知识</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/02/24/moment-js/" title= js日期库moment.js >
+                    <span>Previous Post</span>
+                    <span>js日期库moment.js</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/11/leet-code/" >
-                
-                    <span>LeetCode 刷题</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/11/leet-code/" >
-                <div class="abstract-content">
-                    题目均源自 LeetCode (ง •̀_•́)ง
-EasyFind Anagram MappingsGiven two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
-We want to find an index mapping P, from A to B. A mapping P[i...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = leetCode>leetCode</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/11</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -236,6 +284,13 @@ We want to find an index mapping P, from A to B. A mapping P[i...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直接插入排序"><span class="toc-number">1.1.</span> <span class="toc-text">直接插入排序</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

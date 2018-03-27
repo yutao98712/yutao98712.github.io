@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Yutt blog
+        操作系统知识 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -58,6 +58,8 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
@@ -65,27 +67,71 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yutt&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">操作系统知识</a>
+            </div>
+    </div>
+    
     <a class="home-link" href=/>Yutt's Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/postImg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            操作系统知识
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 理论>理论</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/03/26</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -153,42 +199,121 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><h3 id="操作系统的基本概念"><a href="#操作系统的基本概念" class="headerlink" title="操作系统的基本概念"></a>操作系统的基本概念</h3><p>操作系统的4个特征：<strong>并发行</strong>、<strong>共享性</strong>、<strong>虚拟性</strong>和<strong>不确定性</strong>。</p>
+<p>操作系统功能的5大部分：<strong>进程管理</strong>、<strong>文件管理</strong>、<strong>存储管理</strong>、<strong>设备管理</strong>和<strong>作业管理</strong>。</p>
+<h3 id="操作系统的分类及特点"><a href="#操作系统的分类及特点" class="headerlink" title="操作系统的分类及特点"></a>操作系统的分类及特点</h3><p><strong>1. 批处理操作系统</strong></p>
+<p>单道批处理：一次只有一个作业装入内存执行，作业由用户程序、数据和作业说明书（作业控制用语言）3个部分组成。</p>
+<p>多道批处理：多道、宏观上并行运行、微观上串行运行。</p>
+<p><strong>2.分时操作系统</strong></p>
+<p>特点：多路性、独立性、交互性和及时性。</p>
+<p><strong>3.实时操作系统</strong></p>
+<p><strong>4.网络操作系统</strong></p>
+<p><strong>6.分布式操作系统</strong></p>
+<p><strong>7.嵌入式操作系统</strong></p>
+<p>微型化、可定制、实时性、可靠性、易移植性。</p>
+<hr>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>死锁产生的4个必要条件：互斥条件、请求保持条件、不可剥夺条件和环路条件</p>
+<p>死锁预防： 预先静态分配法，资源有序分配法</p>
+<p>死锁避免：银行家算法</p>
+<p>死锁解除：资源剥夺法、撤销进程法</p>
+<hr>
+<h2 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h2><p>存储管理的主要功能包括主存空间的分配和回收、提高主存的利用率、扩充主存、对主存信息实现有效保护。</p>
+<h3 id="地址重定位"><a href="#地址重定位" class="headerlink" title="地址重定位"></a>地址重定位</h3><p>地址重定位是指将逻辑地址转换为物理地址的过程。分为<strong>静态重定位</strong>和<strong>动态重定位</strong>。</p>
+<h3 id="存储管理方案"><a href="#存储管理方案" class="headerlink" title="存储管理方案"></a>存储管理方案</h3><h3 id="分页存储管理"><a href="#分页存储管理" class="headerlink" title="分页存储管理"></a>分页存储管理</h3><p>分页地址结构： 页号 + 页内地址</p>
+<p>若页的大小为2K，则可推断出页内地址有11位，反之亦然。</p>
+<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p><strong>页面置换算法（重点）：</strong>最佳置换算法、先进先出（FIFO）置换算法、最近最少未使用（LRU）置换算法</p>
+<hr>
+<h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><p>管理对象：实际I/O操作的设备（如键盘、鼠标、打印机等）、设备控制器、DMA控制器、中断控制器、I/O处理机（通道）等。</p>
+<p>管理目标：如何提高设备的利用率，为用户提供方便、统一的界面。</p>
+<p>主要技术：中断技术、DMA技术、通道技术和缓冲技术。</p>
+<p>主要任务：保证在多道程序环境下，当多个进程竞争使用设备时，按一定的策略分配和管理各种设备，控制设备的各种操作，完成I/O设备与主存之间的数据交换。</p>
+<p>主要功能：动态地掌握并记录设备的状态、设备的分配和释放、缓冲区管理、实现物理I/O设备的操作、提供设备使用的用户接口及设备的访问和控制。</p>
+<h3 id="设备管理采用的相关技术"><a href="#设备管理采用的相关技术" class="headerlink" title="设备管理采用的相关技术"></a>设备管理采用的相关技术</h3><p>通道技术、DMA技术、缓冲技术、Spooling技术。</p>
+<h3 id="磁盘调度"><a href="#磁盘调度" class="headerlink" title="磁盘调度"></a>磁盘调度</h3><p>磁盘调度的目标是使进程对磁盘的平均寻道时间最短。</p>
+<p><strong>1、磁盘驱动调度</strong></p>
+<p>1）先来先服务（FCFS）算法：它按照输入输出请求到达的顺序，逐一完成访问请求，它只考虑请求访问者的先后顺序，而不考虑它们要访问的物理位置。</p>
+<p>2）最短查找时间优先（SSTF）算法： 先对最靠近当前柱面位置的请求进行服务，即先对寻找时间最短的请求进行服务。</p>
+<p>3）SCAN算法</p>
+<p>4）C-SCAN算法：与SCAN算法相似，但达到另一端时，会马上折回磁盘的开始端。</p>
+<p><strong>2、旋转调度算法</strong></p>
+<p>旋转调度应该考虑如下情况：</p>
+<ol>
+<li>进程请求的是同一磁道上不同编号的扇区。</li>
+<li>进程请求访问的是不同磁道上不同编号的扇区。</li>
+<li>进程请求访问的是不同磁道上具有相同编号的扇区。</li>
+</ol>
+<hr>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><p>文件系统的功能：按名存取、统一的用户接口、并发和访问控制、安全性控制、优化性能、差错恢复。</p>
+<h3 id="文件的结构和组织"><a href="#文件的结构和组织" class="headerlink" title="文件的结构和组织"></a>文件的结构和组织</h3><p><strong>1、文件的逻辑结构：</strong></p>
+<ol>
+<li>有结构的纪录式文件：定长记录和变长记录。</li>
+<li>无机构的流式文件。</li>
+</ol>
+<p><strong>2、文件的物理结构：</strong></p>
+<ol>
+<li>连续结构。</li>
+<li>链接结构。</li>
+<li>索引结构。</li>
+<li>多个物理块的索引表。</li>
+</ol>
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>文件控制块（FCB）的有序集合称为文件目录</p>
+<p><strong>1、文件控制块</strong></p>
+<ul>
+<li>基本信息类（文件名、问价你的无力地址、文件长度和文件块数）</li>
+<li>存取控制信息类（文件的存取权限。。）</li>
+<li>使用信息类（文件简历日期，最后一次修改日期）</li>
+</ul>
+<p><strong>2、文件存储空间的管理</strong></p>
+<ul>
+<li>空闲区表。</li>
+<li>位示图。</li>
+<li>空闲块链。</li>
+<li>成组连接法。</li>
+</ul>
+<hr>
+<h2 id="作业管理"><a href="#作业管理" class="headerlink" title="作业管理"></a>作业管理</h2><h3 id="作业调度算法"><a href="#作业调度算法" class="headerlink" title="作业调度算法"></a>作业调度算法</h3><ul>
+<li>先来先服务</li>
+<li>短作业优先</li>
+<li>响应比高优先</li>
+<li>优先级调度算法</li>
+<li>均衡调度算法</li>
+</ul>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/03/27/software-engineering/" title= 软件工程 >
+                    <span>Next Post</span>
+                    <span>软件工程</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/03/22/data-struct/" title= 数据结构 >
+                    <span>Previous Post</span>
+                    <span>数据结构</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/11/leet-code/" >
-                
-                    <span>LeetCode 刷题</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/11/leet-code/" >
-                <div class="abstract-content">
-                    题目均源自 LeetCode (ง •̀_•́)ง
-EasyFind Anagram MappingsGiven two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
-We want to find an index mapping P, from A to B. A mapping P[i...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = leetCode>leetCode</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/11</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -236,6 +361,13 @@ We want to find an index mapping P, from A to B. A mapping P[i...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统概述"><span class="toc-number">1.</span> <span class="toc-text">操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统的基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统的分类及特点"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统的分类及特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程管理"><span class="toc-number">2.</span> <span class="toc-text">进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">2.1.</span> <span class="toc-text">死锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储管理"><span class="toc-number">3.</span> <span class="toc-text">存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#地址重定位"><span class="toc-number">3.1.</span> <span class="toc-text">地址重定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储管理方案"><span class="toc-number">3.2.</span> <span class="toc-text">存储管理方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分页存储管理"><span class="toc-number">3.3.</span> <span class="toc-text">分页存储管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟存储管理"><span class="toc-number">3.4.</span> <span class="toc-text">虚拟存储管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设备管理"><span class="toc-number">4.</span> <span class="toc-text">设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设备管理采用的相关技术"><span class="toc-number">4.1.</span> <span class="toc-text">设备管理采用的相关技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#磁盘调度"><span class="toc-number">4.2.</span> <span class="toc-text">磁盘调度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">5.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的结构和组织"><span class="toc-number">5.1.</span> <span class="toc-text">文件的结构和组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件目录"><span class="toc-number">5.2.</span> <span class="toc-text">文件目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作业管理"><span class="toc-number">6.</span> <span class="toc-text">作业管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作业调度算法"><span class="toc-number">6.1.</span> <span class="toc-text">作业调度算法</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
