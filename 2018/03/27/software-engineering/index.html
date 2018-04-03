@@ -219,14 +219,238 @@
 <li>测试</li>
 <li>维护</li>
 </ul>
-<h3 id="软件过程"><a href="#软件过程" class="headerlink" title="软件过程"></a>软件过程</h3><p><strong>1、能力成熟度模型(CMM):</strong></p>
+<h3 id="软件过程"><a href="#软件过程" class="headerlink" title="软件过程"></a>软件过程</h3><p><strong>能力成熟度模型(CMM):</strong></p>
 <ul>
-<li></li>
+<li><strong>初始级（Initial）</strong>杂乱无章，甚至很混乱，几乎没有明确定义的步骤，项目的成功完全依赖个人的努力和英雄式的核心人物的作用。</li>
+<li><strong>可重复级（Repeatable）</strong>可跟踪项目费用、进度和功能特性，有必要的过程准则来重复以前在同类项目中的成功。</li>
+<li><strong>已定义级（Defined）</strong> 软件过程已经文档化，标准化，并综合成整个软件开发组织的标准软件过程。所有软件项目都采用根据实际情况修改后得到的标准软件过程来开发和维护软件。</li>
+<li><strong>已管理级（Managed）</strong>制定了软件过程和产品质量的详细度量标准。软件过程的铲平质量都被开发组织的成员理解和控制。</li>
+<li><strong>优化级（Optimized）</strong>加强了定量分析，通过来自过程的反馈和来自观念、新技术的反馈使过程不断持续地改进</li>
 </ul>
+<hr>
+<h2 id="软件过程模型"><a href="#软件过程模型" class="headerlink" title="软件过程模型"></a>软件过程模型</h2><h3 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h3><p>以文档驱动的，适合软件开发过程很明确的软件项目的模型。</p>
+<h3 id="增量模型"><a href="#增量模型" class="headerlink" title="增量模型"></a>增量模型</h3><p>优点：</p>
+<ul>
+<li>第一个可交付版本所需要的成本和时间很少。</li>
+<li>开发由增量表示的小系统所承担的风险不大。</li>
+<li>由于很快发布了第一个版本，因此可以减少用户的需求变更。</li>
+<li>运行增量投资，即在项目开始时，可以仅对一个或两个增量投资。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>如果没有对用户的变更要求进行规划，你吧么产生的初始增量可能会造成后来增量的不稳定。</li>
+<li>如果需求不像早期思考的那样稳定和完整，那么一些增量就可能需要重新开发，重新发布。</li>
+<li>管理发生的成本、进度和配置的复杂性可能会超出组织的能力。</li>
+</ul>
+<h3 id="原型模型"><a href="#原型模型" class="headerlink" title="原型模型"></a>原型模型</h3><p>原型方法比较适合于用户需求不清、需求经常变化的情况。当系统规模不是很大也不太复杂时，采用该方法。</p>
+<h3 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h3><p>结合了瀑布模型和演化模型，分为如下4个工作步骤：</p>
+<ul>
+<li>制定计划。</li>
+<li>风险分析。</li>
+<li>实施工程。</li>
+<li>用户评估。</li>
+</ul>
+<p>螺旋模型强调风险分析，适用于庞大，复杂且具有高风险的系统。</p>
+<h3 id="喷泉模型"><a href="#喷泉模型" class="headerlink" title="喷泉模型"></a>喷泉模型</h3><p>是一种以用户需求为动力，已对象作为驱动的模型，适合于面向对象的开发方法，具有迭代性和无间隙性。<br>优点：</p>
+<ul>
+<li>各个阶段没有明显的界限，开发人员可以同步进行，提高软件的开发效率，节省时间。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>各个开发阶段是重叠的，在开发过程中需要大量的开发人员，不利于项目管理。</li>
+<li>要求严格管理文档，使得审核的难度加大。</li>
+</ul>
+<h3 id="基于构建的开发模型"><a href="#基于构建的开发模型" class="headerlink" title="基于构建的开发模型"></a>基于构建的开发模型</h3><p>具有多螺旋模型的特点，它本质上是演化模型，需要以迭代的方式构建软件。其不同之处在于基于构建的开发模型采用预先打包的软件构建开发应用系统。</p>
+<h3 id="统一过程（UP）模型"><a href="#统一过程（UP）模型" class="headerlink" title="统一过程（UP）模型"></a>统一过程（UP）模型</h3><p>是一种“用例和风险驱动，以架构为中心，迭代并且增量”的开发过程，由UML方法和工具支持。</p>
+<p>4个技术阶段：</p>
+<ul>
+<li>起始阶段。</li>
+<li>精化阶段。</li>
+<li>构建阶段。</li>
+<li>移交阶段。</li>
+</ul>
+<h3 id="敏捷方法"><a href="#敏捷方法" class="headerlink" title="敏捷方法"></a>敏捷方法</h3><ul>
+<li>极限编程（XP）<br>四大价值观：沟通、简单性、反馈和勇气。<br>5个原则：快速反馈、简单性假设、逐步修改、提倡更改和优质工作。</li>
+<li>水晶法（Crystal）</li>
+<li>并列争求法（Scrum）</li>
+<li>自适应软件开发（ASD）</li>
+</ul>
+<hr>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><h3 id="软件需求"><a href="#软件需求" class="headerlink" title="软件需求"></a>软件需求</h3><ul>
+<li>功能需求。（要做什么，何时做在何时一级如何修改或升级）</li>
+<li>性能需求。（存储容量限制、执行速度、响应时间及吞吐量）</li>
+<li>用户或人的因素。（用户使用计算机的熟练程度，用户错误操作的可能性）</li>
+<li>环境需求。（外设、接口、地点、分布、湿度、磁场、系统、网络、数据库）</li>
+<li>界面需求。</li>
+<li>文档需求。</li>
+<li>数据需求。（输入输出数据的格式、接受发送数据的频率、数据的准确性和精度）</li>
+<li>资源使用需求。</li>
+<li>安全保密要求。</li>
+<li>可靠性要求。</li>
+<li>软件陈本消耗和开发进度。</li>
+<li>其它非功能性需求。（开发模式、维护性、验收标准…）</li>
+</ul>
+<h3 id="软件需求说明书"><a href="#软件需求说明书" class="headerlink" title="软件需求说明书"></a>软件需求说明书</h3><ul>
+<li>数据描述</li>
+<li>数据流图</li>
+<li>数据字典描述</li>
+<li>胸接口描述</li>
+<li>内部接口说明</li>
+<li>系统的功能描述</li>
+<li>处理说明</li>
+<li>系统设计的限制</li>
+<li>系统的性能描述</li>
+<li>性能参数</li>
+<li>对系统进行测试的种类</li>
+</ul>
+<h2 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h2><p>怎么做？</p>
+<h3 id="概要设计"><a href="#概要设计" class="headerlink" title="概要设计"></a>概要设计</h3><ul>
+<li>设计软件系统总体结构</li>
+<li>数据结构及数据库设计</li>
+<li>编写该要设计文档</li>
+<li>评审</li>
+</ul>
+<h3 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h3><ul>
+<li>算法设计</li>
+<li>模块内的数据结构设计</li>
+<li>数据库物理机构设计</li>
+<li>其它设计</li>
+<li>评审</li>
+</ul>
+<hr>
+<h2 id="系统测试"><a href="#系统测试" class="headerlink" title="系统测试"></a>系统测试</h2><h3 id="系统测试的目的"><a href="#系统测试的目的" class="headerlink" title="系统测试的目的"></a>系统测试的目的</h3><p>系统测试是为了发现错误而执行程序的过程。</p>
+<h3 id="系统测试的基本原则"><a href="#系统测试的基本原则" class="headerlink" title="系统测试的基本原则"></a>系统测试的基本原则</h3><ul>
+<li>应尽早并不断地进行测试。</li>
+<li>测试工作应该避免由原软件的人或小组承担。</li>
+<li>要根据系统功能确定预期输出结果。</li>
+<li>既要包含有效、合理的输入条件，也要包含不合理、失效的输入条件</li>
+<li>在测试程序时，不仅要检验程序员是否做了该做的事，还要检验程序是否做了不该做的事</li>
+<li>严格按照测试计划进行</li>
+<li>妥善保存测试计划，测试用例</li>
+<li>测试例子都是精心设计出来的，可以为重新测试或追加测试提供方便</li>
+</ul>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><p>也成模块测试，侧重于模块中的内部处理逻辑和数据结构。</p>
+<p>测试内容：</p>
+<ul>
+<li>模块接口</li>
+<li>局部数据结构</li>
+<li>重要的执行路径</li>
+<li>出错处理</li>
+<li>边界条件</li>
+</ul>
+<h3 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h3><p>把模块按系统设计说明书的要求组合起来进行测试。</p>
+<ul>
+<li>自顶向下的集成测试</li>
+<li>自底向上的集成测试</li>
+<li>回归测试</li>
+<li>冒烟测试</li>
+</ul>
+<h3 id="确认测试"><a href="#确认测试" class="headerlink" title="确认测试"></a>确认测试</h3><p>确认测试始于集成测试的结束，那是就已经测试完单个构建。</p>
+<h3 id="系统测试-1"><a href="#系统测试-1" class="headerlink" title="系统测试"></a>系统测试</h3><p>各种集成测试和确认测试。</p>
+<h3 id="测试web应用"><a href="#测试web应用" class="headerlink" title="测试web应用"></a>测试web应用</h3><p><strong>质量维度</strong></p>
+<ul>
+<li>内容</li>
+<li>功能</li>
+<li>结构</li>
+<li>可用性</li>
+<li>导航性</li>
+<li>性能</li>
+<li>兼容性</li>
+<li>安全性</li>
+</ul>
+<h3 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h3><ul>
+<li>等价类划分</li>
+<li>边界值分析</li>
+<li>错误推测</li>
+<li>因果图</li>
+</ul>
+<h3 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h3><ul>
+<li>语句覆盖（SC）<br>被测程序的每个语句至少执行一次。</li>
+<li>判定覆盖 （DC）<br>每个判定的每种结果至少执行一次</li>
+<li>条件覆盖 （CC）<br>每个条件的结果至少执行一次</li>
+<li>判定/条件覆盖（CDC）<br>同时满足判定覆盖和条件覆盖</li>
+<li>条件组合覆盖（MCC）<br>判定中所有可能的条件组合</li>
+<li>路径覆盖</li>
+</ul>
+<h3 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h3><ul>
+<li>试探法</li>
+<li>回溯法</li>
+<li>对分查找法</li>
+<li>归纳法</li>
+<li>演绎法</li>
+</ul>
+<hr>
+<h2 id="运行和维护知识"><a href="#运行和维护知识" class="headerlink" title="运行和维护知识"></a>运行和维护知识</h2><h3 id="系统转换"><a href="#系统转换" class="headerlink" title="系统转换"></a>系统转换</h3><ul>
+<li>直接转换</li>
+<li>并行转换</li>
+<li>分段转换</li>
+</ul>
+<h3 id="系统可维护性的评价指标"><a href="#系统可维护性的评价指标" class="headerlink" title="系统可维护性的评价指标"></a>系统可维护性的评价指标</h3><ul>
+<li>可理解性</li>
+<li>可测试性</li>
+<li>可修改性</li>
+</ul>
+<h3 id="软件维护"><a href="#软件维护" class="headerlink" title="软件维护"></a>软件维护</h3><ul>
+<li>正确性维护</li>
+<li>适应性维护</li>
+<li>完善性维护</li>
+<li>预防性维护</li>
+</ul>
+<h3 id="系统评价"><a href="#系统评价" class="headerlink" title="系统评价"></a>系统评价</h3><ul>
+<li>立项评价</li>
+<li>中期评价</li>
+<li>结束评价</li>
+</ul>
+<h2 id="软件项目管理"><a href="#软件项目管理" class="headerlink" title="软件项目管理"></a>软件项目管理</h2><h3 id="软件项目管理设计的范围"><a href="#软件项目管理设计的范围" class="headerlink" title="软件项目管理设计的范围"></a>软件项目管理设计的范围</h3><p><strong>1、人员</strong></p>
+<ul>
+<li>项目管理人员（项目经理）</li>
+<li>高级管理人员</li>
+<li>开发人员</li>
+<li>客户</li>
+<li>最终用户</li>
+</ul>
+<p><strong>2、产品（软件环境）</strong></p>
+<ul>
+<li>项目环境</li>
+<li>信息目标</li>
+<li>功能和性能</li>
+</ul>
+<p><strong>3、过程</strong><br>选择过程模型</p>
+<p><strong>4、项目</strong></p>
+<ul>
+<li>明确目标及过程</li>
+<li>保持动力</li>
+<li>跟踪进展</li>
+<li>作出明智的决策</li>
+<li>进行时候分析</li>
+</ul>
+<h3 id="软件项目估算"><a href="#软件项目估算" class="headerlink" title="软件项目估算"></a>软件项目估算</h3><p><strong>COCOMO估算模型</strong><br>基本COCOMO模型<br>E = a(L)^b<br>D = cE^d<br>E表示工作量，单位时人月；D表示开发时间，单位是月；L是项目的源代码估计值，单位是千行；a、b、c、d是常数</p>
+<p>中级COCOMO模型<br>E = a(L^b)EAF<br>EAF是工作量调节因子</p>
+<p><strong>Putnam估算模型</strong></p>
+<h3 id="进度管理"><a href="#进度管理" class="headerlink" title="进度管理"></a>进度管理</h3><p>进度管理的基本原则：</p>
+<ul>
+<li>划分</li>
+<li>相互依赖性</li>
+<li>时间分配</li>
+<li>工作量确认</li>
+<li>确定责任</li>
+<li>明确输出结果</li>
+<li>确定里程碑</li>
+</ul>
+<p>进度安排：<br>Gantt图<br>PERT图</p>
+<hr>
+<h2 id="软件质量"><a href="#软件质量" class="headerlink" title="软件质量"></a>软件质量</h2><p>由质量保证、质量规划和质量控制三部分组成</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/03/29/structured-devMethod/" title= 结构化开发方法 >
+                    <span>Next Post</span>
+                    <span>结构化开发方法</span>
+                </a>
+            </li>
         
         
             <li class="previous">
@@ -302,7 +526,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#软件工程概述"><span class="toc-number">1.</span> <span class="toc-text">软件工程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件工程基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">软件工程基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件生存周期"><span class="toc-number">1.2.</span> <span class="toc-text">软件生存周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件过程"><span class="toc-number">1.3.</span> <span class="toc-text">软件过程</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#软件工程概述"><span class="toc-number">1.</span> <span class="toc-text">软件工程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件工程基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">软件工程基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件生存周期"><span class="toc-number">1.2.</span> <span class="toc-text">软件生存周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件过程"><span class="toc-number">1.3.</span> <span class="toc-text">软件过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件过程模型"><span class="toc-number">2.</span> <span class="toc-text">软件过程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#瀑布模型"><span class="toc-number">2.1.</span> <span class="toc-text">瀑布模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增量模型"><span class="toc-number">2.2.</span> <span class="toc-text">增量模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型模型"><span class="toc-number">2.3.</span> <span class="toc-text">原型模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#螺旋模型"><span class="toc-number">2.4.</span> <span class="toc-text">螺旋模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#喷泉模型"><span class="toc-number">2.5.</span> <span class="toc-text">喷泉模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于构建的开发模型"><span class="toc-number">2.6.</span> <span class="toc-text">基于构建的开发模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#统一过程（UP）模型"><span class="toc-number">2.7.</span> <span class="toc-text">统一过程（UP）模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#敏捷方法"><span class="toc-number">2.8.</span> <span class="toc-text">敏捷方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需求分析"><span class="toc-number">3.</span> <span class="toc-text">需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件需求"><span class="toc-number">3.1.</span> <span class="toc-text">软件需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件需求说明书"><span class="toc-number">3.2.</span> <span class="toc-text">软件需求说明书</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统设计"><span class="toc-number">4.</span> <span class="toc-text">系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概要设计"><span class="toc-number">4.1.</span> <span class="toc-text">概要设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细设计"><span class="toc-number">4.2.</span> <span class="toc-text">详细设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统测试"><span class="toc-number">5.</span> <span class="toc-text">系统测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统测试的目的"><span class="toc-number">5.1.</span> <span class="toc-text">系统测试的目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统测试的基本原则"><span class="toc-number">5.2.</span> <span class="toc-text">系统测试的基本原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单元测试"><span class="toc-number">5.3.</span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集成测试"><span class="toc-number">5.4.</span> <span class="toc-text">集成测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确认测试"><span class="toc-number">5.5.</span> <span class="toc-text">确认测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统测试-1"><span class="toc-number">5.6.</span> <span class="toc-text">系统测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试web应用"><span class="toc-number">5.7.</span> <span class="toc-text">测试web应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#黑盒测试"><span class="toc-number">5.8.</span> <span class="toc-text">黑盒测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#白盒测试"><span class="toc-number">5.9.</span> <span class="toc-text">白盒测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试方法"><span class="toc-number">5.10.</span> <span class="toc-text">调试方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行和维护知识"><span class="toc-number">6.</span> <span class="toc-text">运行和维护知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统转换"><span class="toc-number">6.1.</span> <span class="toc-text">系统转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统可维护性的评价指标"><span class="toc-number">6.2.</span> <span class="toc-text">系统可维护性的评价指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件维护"><span class="toc-number">6.3.</span> <span class="toc-text">软件维护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统评价"><span class="toc-number">6.4.</span> <span class="toc-text">系统评价</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件项目管理"><span class="toc-number">7.</span> <span class="toc-text">软件项目管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件项目管理设计的范围"><span class="toc-number">7.1.</span> <span class="toc-text">软件项目管理设计的范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件项目估算"><span class="toc-number">7.2.</span> <span class="toc-text">软件项目估算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进度管理"><span class="toc-number">7.3.</span> <span class="toc-text">进度管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件质量"><span class="toc-number">8.</span> <span class="toc-text">软件质量</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -487,7 +711,56 @@
     
     
     
-    <div class="total-archive"> Total : 15 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 18 </div>
     
     <div class="post-archive">
     
@@ -496,6 +769,21 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2018/04/02/arithmetic/" >算法设计与分析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/object-oriented/" >面向对象(设计模式)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/structured-devMethod/" >结构化开发方法</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -593,9 +881,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">react</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">redux</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
