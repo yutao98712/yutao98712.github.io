@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Yutt blog
+        计算机基础知识 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -58,6 +58,8 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
@@ -65,27 +67,71 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yutt&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">计算机基础知识</a>
+            </div>
+    </div>
+    
     <a class="home-link" href=/>Yutt's Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/postImg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            计算机基础知识
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 理论>理论</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/04/11</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -153,42 +199,161 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p>计算机的基本硬件系统由运算器、控制器、存储器、输入设备和输出设备5大部件组成</p>
+<p><strong>CPU</strong><br>组成：运算器、控制器、寄存器和内部总线。<br>功能: 指令控制、操作控制、时间控制和数据加工。</p>
+<p>1) 运算器</p>
+<ul>
+<li>算术逻辑单元（ALU）</li>
+<li>累加寄存器（AC）</li>
+<li>数据缓冲寄存器（DR）</li>
+<li>状态条件寄存器（PSW）</li>
+</ul>
+<p>2) 控制器</p>
+<ul>
+<li>指令寄存器（IR）</li>
+<li>程序计数器（PC）</li>
+<li>地址寄存器（AR）</li>
+<li>指令译码器（ID）</li>
+</ul>
+<p>指令控制逻辑、时序控制逻辑、总线控制逻辑、中断逻辑。</p>
+<h2 id="数据表示"><a href="#数据表示" class="headerlink" title="数据表示"></a>数据表示</h2><p><strong>原码</strong><br>如果机器字长n等于8<br>[+1] = 0 0000001<br>[-1] = 1 0000001<br>[+0.5] = 0.1000000<br>[-0.5] = 1.1000000</p>
+<p><strong>反码</strong><br>原码符号位不变，其它位取反。</p>
+<p><strong>补码</strong><br>反码加1。</p>
+<p><strong>移码</strong><br>将符号为取反的补码。</p>
+<p><strong>浮点数</strong></p>
+<p>工业标准IEEE 754</p>
+<p>(-1)^S <em> 2^E </em> (b0b1b2b3bp-1)</p>
+<p>(-1)^S 阶符<br>S为0是表示正数，S为1时表示负数。<br>E为阶码。<br>(b0b1b2b3bp-1) 为尾数。<br>长度为P。</p>
+<h2 id="校验码"><a href="#校验码" class="headerlink" title="校验码"></a>校验码</h2><p>奇偶校验</p>
+<p>海明码<br>2^k -1 &gt;= n + k<br>k是校验位， n是数据位<br>循环冗余校验码</p>
+<h2 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h2><p>Flunn 分类法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">体系结构类型</th>
+<th style="text-align:center">结构</th>
+<th style="text-align:center">关键特性</th>
+<th style="text-align:center">代表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">单指令、单数据流（SISD）</td>
+<td style="text-align:center">控制部分：一个；处理器： 一个；主存模块：一个</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">单处理器系统</td>
+</tr>
+<tr>
+<td style="text-align:center">单指令、多数据流（SIMD）</td>
+<td style="text-align:center">控制部分：一个；处理器： 多个；主存模块：多个</td>
+<td style="text-align:center">各处理器以异步执行同一条命令</td>
+<td style="text-align:center">并行处理机 <br> 整列处理机 <br> 超级向量处理机</td>
+</tr>
+<tr>
+<td style="text-align:center">多指令、多数据流（SIMD）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">理论模型，未见成型产品</td>
+</tr>
+<tr>
+<td style="text-align:center">多指令、多数据流（SIMD）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">多处理机系统 <br> 多计算机</td>
+</tr>
+</tbody>
+</table>
+<h2 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h2><p>1) CISI（复杂指令集计算机）</p>
+<ul>
+<li>指令集过分复杂</li>
+<li>微程序, 降低了机器的处理速度</li>
+<li>难以优化编译形成高效代码</li>
+<li>强调完善中断控制，导致动作繁多、设计复杂、研制周期长</li>
+<li>设计困难，芯片种类多，出错几率大，成本高</li>
+</ul>
+<p>2) RISC (精简指令集)</p>
+<ul>
+<li>重叠寄存器窗口技术</li>
+<li>优化编译技术</li>
+<li>超流水及超量技术</li>
+<li>硬布线逻辑与微程序集合</li>
+</ul>
+<p><strong>指令的流水处理</strong></p>
+<h2 id="存储系统"><a href="#存储系统" class="headerlink" title="存储系统"></a>存储系统</h2><p>层次结构: CPU内部存储器、Cache、主存储器、联机磁盘存储器、脱机光盘磁盘存储器</p>
+<p>按存储器的工作方式分类：</p>
+<ul>
+<li>读/写存储器（RAM）</li>
+<li>只读存储器（ROM）</li>
+</ul>
+<p>相关联存储器: 按内容访问的存储器</p>
+<p>高速缓存：速度比一般主存快5～10倍, 对程序员来说是透明的。</p>
+<p>高速缓存中的地址映像方法：<br>在CPU工作时，送出的是主存单元的地址，而应从Cache存储器中读/写信息</p>
+<ul>
+<li>直接映像<br>主存的块与Cache的块的对应关系是固定的</li>
+<li>全相联映像<br>主存与Cache存储器均分成大小相同的块。这种映像方式允许任一块可以调入Canche存储器的任何一个块的空间中。<br>例如， 主存为64MB，Cache为32KB，块的大小为4KB，因此块内地址需要12位，主存需要26位，由于块内地址位12位，所以块号需要14位。</li>
+</ul>
+<p>虚拟存储器</p>
+<p>外部存储器</p>
+<p>廉价冗余磁盘阵列</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">RAID级别</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">RAID-0</td>
+<td style="text-align:left">代表了RAID中最高的存储性能， 每个磁盘执行术语它自己的那部分数据请求，不具备容错能力</td>
+</tr>
+<tr>
+<td style="text-align:left">RAID-1</td>
+<td style="text-align:left">采用镜像容错改善可靠性的一种磁盘阵列，最大限度地保证用户数据的可用性和可修复性，数据百分百备份，备份数据占了总存储空间的一半</td>
+</tr>
+<tr>
+<td style="text-align:left">RAID-2</td>
+<td style="text-align:left">采用海明码进行错误检测</td>
+</tr>
+<tr>
+<td style="text-align:left">RAID-3</td>
+<td style="text-align:left">一般只有一个校验盘</td>
+</tr>
+<tr>
+<td style="text-align:left">RAID-4</td>
+<td style="text-align:left">也只有一个校验盘</td>
+</tr>
+</tbody>
+</table>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/04/08/internet/" title= 网络与信息安全基础知识 >
+                    <span>Previous Post</span>
+                    <span>网络与信息安全基础知识</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/11/leet-code/" >
-                
-                    <span>LeetCode 刷题</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/11/leet-code/" >
-                <div class="abstract-content">
-                    题目均源自 LeetCode (ง •̀_•́)ง
-EasyFind Anagram MappingsGiven two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
-We want to find an index mapping P, from A to B. A mapping P[i...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = leetCode>leetCode</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/11</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -236,6 +401,13 @@ We want to find an index mapping P, from A to B. A mapping P[i...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件"><span class="toc-number">1.</span> <span class="toc-text">硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表示"><span class="toc-number">2.</span> <span class="toc-text">数据表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#校验码"><span class="toc-number">3.</span> <span class="toc-text">校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机体系结构"><span class="toc-number">4.</span> <span class="toc-text">计算机体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令系统"><span class="toc-number">5.</span> <span class="toc-text">指令系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储系统"><span class="toc-number">6.</span> <span class="toc-text">存储系统</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

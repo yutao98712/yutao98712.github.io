@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Yutt blog
+        网络与信息安全基础知识 · Yutt blog
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -58,6 +58,8 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
@@ -65,27 +67,71 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Yutt&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">网络与信息安全基础知识</a>
+            </div>
+    </div>
+    
     <a class="home-link" href=/>Yutt's Blog</a>
 </header>
     <div class="wrapper">
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/postImg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            网络与信息安全基础知识
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 理论>理论</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/04/08</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -153,42 +199,83 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="逻辑设计"><a href="#逻辑设计" class="headerlink" title="逻辑设计"></a>逻辑设计</h2><p>任务：<br>根据用户的分类和分部，选择特定的技术，形成特定的网络结构</p>
+<p>过程：</p>
+<ul>
+<li>确定逻辑设计目标</li>
+<li>网络服务评价</li>
+<li>技术选项评价</li>
+<li>技术决策</li>
+</ul>
+<p>工作：</p>
+<ul>
+<li>网络结构的设计</li>
+<li>物理层技术选择</li>
+<li>局域网技术选择与应用</li>
+<li>广域网技术选择与应用</li>
+<li>地址设计和命名模型</li>
+<li>路由选择协议</li>
+<li>网络管理和网络安全</li>
+</ul>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><ul>
+<li>物理层提供建立、维护和拆除物理链路所需的机械、电气、功能和规程特性;</li>
+<li>提供有关在传输介质上非传输结构的位流及物理链路故障检测指示。</li>
+</ul>
+<p><strong>物理层的互连设备</strong></p>
+<p>1) 中继器</p>
+<p>中继器是物理层上面的网络连接设备，适用于完全相同的两类网络互连，主要功能是通过对数据信号的接受、放大、整形与转发，来扩大网络的传输距离。</p>
+<p>2) 集线器</p>
+<p>集线器也是物理层的网络连接设备，可以说集线器是一个多端口的中继器，其主要功能是对接收到的信号进行再生整形放大，以扩大网络的传输距离，同时把所有节点集中在以它为中心的节点上，连接到一个集线器的所有节点共享一个冲突域。</p>
+<h2 id="局域网协议"><a href="#局域网协议" class="headerlink" title="局域网协议"></a>局域网协议</h2><p>LAC = 物理层 + MAC（介质访问控制层） + LLC（逻辑链路控制层）</p>
+<p>CSMA/CD 介质访问协议</p>
+<p>IEEE 802.3 —— 10Mbps以太网 同轴电缆</p>
+<p>IEEE 802.3u —— 100Mbps快速以太网 分屏蔽双绞线</p>
+<p>IEEE 802.3z —— 1000Mbps千兆以太网</p>
+<p>IEEE 802.5 —— 令牌环网 </p>
+<p>FDDI 光纤分布式数据接口 （单模光纤、多摸光纤）</p>
+<h2 id="广域网协议"><a href="#广域网协议" class="headerlink" title="广域网协议"></a>广域网协议</h2><p>点对电协议(PPP)  </p>
+<p>数字用户线(xDSL): ADSL(非对称用户数据线)…</p>
+<p>数字专线(DDN)</p>
+<p>帧中继（FR）</p>
+<p>异步传输模式（ATM）</p>
+<p>X.25  </p>
+<h2 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h2><p>应用层，表示层，会话层： 文件传输协议（FTP）远程登陆协议(telnet) 电子邮件协议(SMTP) 网络文件服务协议(NFS)  网络管理协议(SNMP)</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/04/11/computer-system/" title= 计算机基础知识 >
+                    <span>Next Post</span>
+                    <span>计算机基础知识</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/04/03/database/" title= 数据库 >
+                    <span>Previous Post</span>
+                    <span>数据库</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/11/leet-code/" >
-                
-                    <span>LeetCode 刷题</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/11/leet-code/" >
-                <div class="abstract-content">
-                    题目均源自 LeetCode (ง •̀_•́)ง
-EasyFind Anagram MappingsGiven two lists Aand B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
-We want to find an index mapping P, from A to B. A mapping P[i...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = leetCode>leetCode</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/11</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -236,6 +323,13 @@ We want to find an index mapping P, from A to B. A mapping P[i...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑设计"><span class="toc-number">1.</span> <span class="toc-text">逻辑设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理层"><span class="toc-number">2.</span> <span class="toc-text">物理层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#局域网协议"><span class="toc-number">3.</span> <span class="toc-text">局域网协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广域网协议"><span class="toc-number">4.</span> <span class="toc-text">广域网协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP协议族"><span class="toc-number">5.</span> <span class="toc-text">TCP/IP协议族</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
