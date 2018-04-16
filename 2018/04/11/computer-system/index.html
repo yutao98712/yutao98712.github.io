@@ -212,7 +212,7 @@
 </ul>
 <p>2) 控制器</p>
 <ul>
-<li>指令寄存器（IR）</li>
+<li>指令寄存器（IR），其位数取决于指令的长度。</li>
 <li>程序计数器（PC）</li>
 <li>地址寄存器（AR）</li>
 <li>指令译码器（ID）</li>
@@ -252,13 +252,13 @@
 <td style="text-align:center">并行处理机 <br> 整列处理机 <br> 超级向量处理机</td>
 </tr>
 <tr>
-<td style="text-align:center">多指令、多数据流（SIMD）</td>
+<td style="text-align:center">多指令、单数据流（MISD）</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">理论模型，未见成型产品</td>
 </tr>
 <tr>
-<td style="text-align:center">多指令、多数据流（SIMD）</td>
+<td style="text-align:center">多指令、多数据流（MIMD）</td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center">多处理机系统 <br> 多计算机</td>
@@ -281,11 +281,25 @@
 <li>硬布线逻辑与微程序集合</li>
 </ul>
 <p><strong>指令的流水处理</strong></p>
+<p>指令的吞吐率p应为最长子过程的倒数。</p>
 <h2 id="存储系统"><a href="#存储系统" class="headerlink" title="存储系统"></a>存储系统</h2><p>层次结构: CPU内部存储器、Cache、主存储器、联机磁盘存储器、脱机光盘磁盘存储器</p>
 <p>按存储器的工作方式分类：</p>
 <ul>
 <li>读/写存储器（RAM）</li>
 <li>只读存储器（ROM）</li>
+</ul>
+<p>操作数指出指令执行的操作所需要数据的来源。操作数是汇编语言指令的一个字段。例如：Mov AX 5678H 操作数（AX 5678H）。在操作数这个字段中可以放操作数本身，也可以放操作地址，还可以放操作地址的计算方法。</p>
+<p>通常一条指令均包含操作符和操作数。例如：在比较指令中操作符指定计算机做比较操作，操作数则指定进行比较的两个数值。</p>
+<p>操作数是指令执行的参与者,也就是各种操作的对象.与之有关的是操作码,所谓操作码是说明计算机要执行哪种,如传送,运算,移位,跳转等操作,它是指令中不可缺少的组成部分。</p>
+<p><strong>寻址方式</strong></p>
+<ul>
+<li><strong>立即寻址方式</strong><br>指令的地址段指出的不是操作数的地址，而是操数本身。这种方式的特点是指令执行时间很短，不需要访问内存操作数。</li>
+<li><strong>直接寻址方式</strong><br>在指令格式的地址字段中直接指出操作书在内存的地址D。采用这种方式，只需要根据地址字段中大的值，即可访问内存读取到操作数。</li>
+<li><strong>间接寻址方式</strong><br>间接寻址的情况下，指令地址中的形式地址不是操作数的真正地址，而是操作数地址的指示器，D单元的内容才是操作数的有效地址。间接寻址方式是早起计算机中经常采用的方式，但由于两次访问内存，影响指令速度，现在已不大使用。</li>
+<li><strong>寄存器寻址方式和寄存器间接寻址方式</strong><br>当操作数不放在内存中，而是放在CPU的通用寄存器中时，可采用寄存器寻方式。此时指令中给出的操作数地址不是内存的地址但愿好，而是通用寄存器的编号。<br>寄存器间接寻址方式与直接寻址方式区别在于：指令格式中的寄存器内容不是操作数，而是操作数的地址，该地址知名的操作数在内存中。</li>
+<li><strong>相对寻址方式</strong></li>
+<li><strong>基址寻址方式</strong></li>
+<li><strong>变址寻址方式</strong></li>
 </ul>
 <p>相关联存储器: 按内容访问的存储器</p>
 <p>高速缓存：速度比一般主存快5～10倍, 对程序员来说是透明的。</p>
@@ -325,12 +339,59 @@
 <td style="text-align:left">RAID-4</td>
 <td style="text-align:left">也只有一个校验盘</td>
 </tr>
+<tr>
+<td style="text-align:left">RAID-5</td>
+<td style="text-align:left">不设置校验盘，同一个磁盘既记录数据又负责校验</td>
+</tr>
+<tr>
+<td style="text-align:left">RAID-6</td>
+<td style="text-align:left">采用两级数据冗余和新的数据编码</td>
+</tr>
 </tbody>
 </table>
+<h2 id="输入输出技术"><a href="#输入输出技术" class="headerlink" title="输入输出技术"></a>输入输出技术</h2><ul>
+<li>直接程序控制</li>
+<li><p>中断方式<br>中断处理方法：<br>中断向量表法。中断向量表用来保存各个中断服务程序的入口地址。</p>
+<p>为了实现多级中断嵌套，使用堆栈来保护断电和现场最有效。</p>
+</li>
+<li>直接存储器存取方式（DMA）</li>
+<li>输入输出处理机（IOP）</li>
+</ul>
+<h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><p>所谓总线（Bus），是计算机设备和设备之间传输信息的公共数据通道。</p>
+<p><strong>总线的分类</strong></p>
+<ul>
+<li>数据总线（DB），用来传送数据信息，是双向的。</li>
+<li>地址总线（AB），用于传送CPU发送的地址信息。</li>
+<li>控制总线（CB），用来传送控制信号，时许信号和状态信息等。</li>
+</ul>
+<p><strong>常见总线</strong></p>
+<ul>
+<li>ISA，工业标准总线，只能支持16位的I/O设备</li>
+<li>EISA</li>
+<li>PCI，内总线，并行传输方式</li>
+<li>PCI Express</li>
+<li>前端总线</li>
+<li>RS-232C，串行外总线</li>
+<li>SCSI，并行外总线</li>
+<li>SATA</li>
+<li>USB，通用串行总线</li>
+<li>IEEE-1394，高速串行外总线</li>
+<li>IEEE-488， 并行总线</li>
+</ul>
+<p><strong>总线复用</strong><br>总线复用，指的是数据和地址在同一个总线上传输的方式。由于CPU引脚数量有限，使得一些引脚起多个作用。采用总线复用方式，可以减少总线中信号线的数量。</p>
+<h2 id="计算机安全"><a href="#计算机安全" class="headerlink" title="计算机安全"></a>计算机安全</h2><h2 id="计算题"><a href="#计算题" class="headerlink" title="计算题"></a>计算题</h2><p>若内存按字节编址，所用的存储器的容量为16K * 8 比特的存储器芯片构成地址编号为B0000H ~ EFFFFH的内存空间，则最少需要多少片</p>
+<p>一、计算出这些地址编号所需的内存空间大小<br>B0000H - EFFFFH + 1 = 40000H<br>转换为二进制为 2^18<br>二、存储器容量位16K X 8 b, 等于 16K ✖ 1 B<br>三、2^18 = 256KB<br>四、256 ➗ 16 = 16</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/04/12/programming-base/" title= 程序设计语言基础知识 >
+                    <span>Next Post</span>
+                    <span>程序设计语言基础知识</span>
+                </a>
+            </li>
         
         
             <li class="previous">
@@ -406,7 +467,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件"><span class="toc-number">1.</span> <span class="toc-text">硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表示"><span class="toc-number">2.</span> <span class="toc-text">数据表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#校验码"><span class="toc-number">3.</span> <span class="toc-text">校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机体系结构"><span class="toc-number">4.</span> <span class="toc-text">计算机体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令系统"><span class="toc-number">5.</span> <span class="toc-text">指令系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储系统"><span class="toc-number">6.</span> <span class="toc-text">存储系统</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件"><span class="toc-number">1.</span> <span class="toc-text">硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表示"><span class="toc-number">2.</span> <span class="toc-text">数据表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#校验码"><span class="toc-number">3.</span> <span class="toc-text">校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机体系结构"><span class="toc-number">4.</span> <span class="toc-text">计算机体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令系统"><span class="toc-number">5.</span> <span class="toc-text">指令系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储系统"><span class="toc-number">6.</span> <span class="toc-text">存储系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入输出技术"><span class="toc-number">7.</span> <span class="toc-text">输入输出技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总线结构"><span class="toc-number">8.</span> <span class="toc-text">总线结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机安全"><span class="toc-number">9.</span> <span class="toc-text">计算机安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算题"><span class="toc-number">10.</span> <span class="toc-text">计算题</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -683,7 +744,28 @@
     
     
     
-    <div class="total-archive"> Total : 21 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 22 </div>
     
     <div class="post-archive">
     
@@ -692,6 +774,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2018/04/12/programming-base/" >程序设计语言基础知识</a>
+        </li>
     
     
         <li class="archive-post-item">

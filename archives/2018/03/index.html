@@ -351,7 +351,10 @@
             </a>
             <a class="content-show-full" href = "/2018/03/22/data-struct/" >
                 <div class="abstract-content">
-                    排序直接插入排序12345678910111213public int[] insertionSort(int[] data) &#123;    int i, j, tmp;    for (i = 1; i &lt; data.length; i++) &#123;        if (data[i] &lt; data[i - 1]) &#123;            tmp = data[i];            data[i] = data[i - 1];        ...
+                    线性表线性表插入一个元素，需要移动的元素个数的期望值为 n/2，删除一个元素的期望值为(n-1)/2。
+链表节点类型定义：1234typedef struct node &#123;    int data;    struct node *next;&#125;NODE, *LinkList
+单链表中，p节点后插入s12s-&gt;next = p-&gt;next;p-&gt;next = s;
+单链表中，删除p节点的后续节点123q = p-&gt;next;p-&gt;next =...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -694,7 +697,28 @@
     
     
     
-    <div class="total-archive"> Total : 21 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 22 </div>
     
     <div class="post-archive">
     
@@ -703,6 +727,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/2018/04/12/programming-base/" >程序设计语言基础知识</a>
+        </li>
     
     
         <li class="archive-post-item">
