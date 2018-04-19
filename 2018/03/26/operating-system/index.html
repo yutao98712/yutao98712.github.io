@@ -213,17 +213,41 @@
 <p><strong>6.分布式操作系统</strong></p>
 <p><strong>7.嵌入式操作系统</strong></p>
 <p>微型化、可定制、实时性、可靠性、易移植性。</p>
+<p>多到程序技术是值计算机内存中同时存放几道相互独立的程序，使他们在管理程序控制之下，相互穿插运行。多道程序的运行特征：<br>多道， 宏观上并行运行，微观上串行运行。</p>
 <hr>
-<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>死锁产生的4个必要条件：互斥条件、请求保持条件、不可剥夺条件和环路条件</p>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p><strong>PV操作</strong></p>
+<p><strong>进程调度</strong></p>
+<ul>
+<li>先来先服务</li>
+<li>时间片乱转</li>
+<li>优先级调度</li>
+<li>多级反馈调度</li>
+</ul>
+<p><strong>死锁</strong><br>死锁产生的4个必要条件：互斥条件、请求保持条件、不可剥夺条件和环路条件</p>
 <p>死锁预防： 预先静态分配法，资源有序分配法</p>
 <p>死锁避免：银行家算法</p>
 <p>死锁解除：资源剥夺法、撤销进程法</p>
 <hr>
 <h2 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h2><p>存储管理的主要功能包括主存空间的分配和回收、提高主存的利用率、扩充主存、对主存信息实现有效保护。</p>
+<p>分区存储管理分为固定分区和可变分区。</p>
+<p>对于可变分区，主要有如下4种算法:</p>
+<ul>
+<li>最佳适应算法</li>
+<li>最差适应算法</li>
+<li>首次适应算法</li>
+<li>循环首次适应算法</li>
+</ul>
 <h3 id="地址重定位"><a href="#地址重定位" class="headerlink" title="地址重定位"></a>地址重定位</h3><p>地址重定位是指将逻辑地址转换为物理地址的过程。分为<strong>静态重定位</strong>和<strong>动态重定位</strong>。</p>
-<h3 id="存储管理方案"><a href="#存储管理方案" class="headerlink" title="存储管理方案"></a>存储管理方案</h3><h3 id="分页存储管理"><a href="#分页存储管理" class="headerlink" title="分页存储管理"></a>分页存储管理</h3><p>分页地址结构： 页号 + 页内地址</p>
+<h3 id="存储管理方案"><a href="#存储管理方案" class="headerlink" title="存储管理方案"></a>存储管理方案</h3><p><strong>连续分区</strong><br>把所有的用户区都分配给唯一用户，当作业被调度时，进程全部进入内存，一旦完成，所有主存恢复空闲，因此它不适合多道程序设计。</p>
+<p><strong>固定分区</strong><br>容易产生碎片</p>
+<p><strong>可重定位分区存储管理</strong><br>可以克服固定分区的碎片问题。单花费大量时间和系统资源。</p>
+<p><strong>分页存储管理</strong></p>
+<p>分页地址结构： 页号 + 页内地址</p>
 <p>若页的大小为2K，则可推断出页内地址有11位，反之亦然。</p>
-<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p><strong>页面置换算法（重点）：</strong>最佳置换算法、先进先出（FIFO）置换算法、最近最少未使用（LRU）置换算法</p>
+<p><strong>分段存储管理</strong><br>分段的地址结构：段号 + 段内地址</p>
+<p><strong>段页式存储管理</strong><br>支持虚拟存储</p>
+<h3 id="虚拟存储管理"><a href="#虚拟存储管理" class="headerlink" title="虚拟存储管理"></a>虚拟存储管理</h3><p><strong>请求分页管理</strong></p>
+<p><strong>页面置换算法（重点）：</strong>最佳置换算法、先进先出（FIFO）置换算法、最近最少未使用（LRU）置换算法</p>
 <hr>
 <h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><p>管理对象：实际I/O操作的设备（如键盘、鼠标、打印机等）、设备控制器、DMA控制器、中断控制器、I/O处理机（通道）等。</p>
 <p>管理目标：如何提高设备的利用率，为用户提供方便、统一的界面。</p>
@@ -366,7 +390,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统概述"><span class="toc-number">1.</span> <span class="toc-text">操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统的基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统的分类及特点"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统的分类及特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程管理"><span class="toc-number">2.</span> <span class="toc-text">进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">2.1.</span> <span class="toc-text">死锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储管理"><span class="toc-number">3.</span> <span class="toc-text">存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#地址重定位"><span class="toc-number">3.1.</span> <span class="toc-text">地址重定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储管理方案"><span class="toc-number">3.2.</span> <span class="toc-text">存储管理方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分页存储管理"><span class="toc-number">3.3.</span> <span class="toc-text">分页存储管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟存储管理"><span class="toc-number">3.4.</span> <span class="toc-text">虚拟存储管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设备管理"><span class="toc-number">4.</span> <span class="toc-text">设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设备管理采用的相关技术"><span class="toc-number">4.1.</span> <span class="toc-text">设备管理采用的相关技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#磁盘调度"><span class="toc-number">4.2.</span> <span class="toc-text">磁盘调度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">5.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的结构和组织"><span class="toc-number">5.1.</span> <span class="toc-text">文件的结构和组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件目录"><span class="toc-number">5.2.</span> <span class="toc-text">文件目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作业管理"><span class="toc-number">6.</span> <span class="toc-text">作业管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作业调度算法"><span class="toc-number">6.1.</span> <span class="toc-text">作业调度算法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作系统概述"><span class="toc-number">1.</span> <span class="toc-text">操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统的基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统的分类及特点"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统的分类及特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程管理"><span class="toc-number">2.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储管理"><span class="toc-number">3.</span> <span class="toc-text">存储管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#地址重定位"><span class="toc-number">3.1.</span> <span class="toc-text">地址重定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储管理方案"><span class="toc-number">3.2.</span> <span class="toc-text">存储管理方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟存储管理"><span class="toc-number">3.3.</span> <span class="toc-text">虚拟存储管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设备管理"><span class="toc-number">4.</span> <span class="toc-text">设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设备管理采用的相关技术"><span class="toc-number">4.1.</span> <span class="toc-text">设备管理采用的相关技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#磁盘调度"><span class="toc-number">4.2.</span> <span class="toc-text">磁盘调度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">5.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件的结构和组织"><span class="toc-number">5.1.</span> <span class="toc-text">文件的结构和组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件目录"><span class="toc-number">5.2.</span> <span class="toc-text">文件目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作业管理"><span class="toc-number">6.</span> <span class="toc-text">作业管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#作业调度算法"><span class="toc-number">6.1.</span> <span class="toc-text">作业调度算法</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -657,14 +681,7 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 22 </div>
+    <div class="total-archive"> Total : 23 </div>
     
     <div class="post-archive">
     
@@ -673,6 +690,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2018/04/19/css-emphasis/" >CSS要点</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -797,17 +819,19 @@
     
         <span class="sidebar-tag-name"><a href= "#">理论</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">web</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">react</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">redux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

@@ -266,8 +266,95 @@
 <p>AOV, AOE</p>
 <h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>顺序查找，平均查找长度(n+1)/2.</p>
 <p>折半查找, 需要有序排列<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Bsearch_rec</span><span class="params">(<span class="keyword">int</span> r[], <span class="keyword">int</span> low, <span class="keyword">int</span> high, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">if</span>(low &lt;= high) &#123;</span><br><span class="line">        mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(key == r[mid])</span><br><span class="line">            rerturn mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (key &lt; r[mid])</span><br><span class="line">            <span class="keyword">return</span> Bsearch_rec(r,low,mid - <span class="number">1</span>, key);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; r[mid])</span><br><span class="line">            <span class="keyword">return</span> Bsearch_rec(r,mid + <span class="number">1</span>, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] data) &#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, tmp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (data[i] &lt; data[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            tmp = data[i];</span><br><span class="line">            data[i] = data[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; data[j] &gt; tmp; j--)</span><br><span class="line">                data[j + <span class="number">1</span>] = data[j];</span><br><span class="line">            data[j + <span class="number">1</span>] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>时间复杂度为O(n^2)</p>
+<p>二叉排序树采用二叉链表存储<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Tnode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Tnode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span></span></span><br><span class="line"><span class="class">&#125;<span class="title">BSTnode</span>, *<span class="title">BSTree</span></span></span><br></pre></td></tr></table></figure></p>
+<p>二叉排序树查找算法<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BsTree <span class="title">SearchBST</span><span class="params">(BSTree root, <span class="keyword">int</span> key, BSTree *father)</span> </span>&#123;</span><br><span class="line">    BSTree p = root; *father = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p &amp;&amp; p-&gt;data!=key) &#123;</span><br><span class="line">        *father = p;</span><br><span class="line">        <span class="keyword">if</span>(key &lt; p-&gt;data) p=p-lchild;</span><br><span class="line">        <span class="keyword">else</span> p= p-&gt;rchild</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>平衡二叉树</li>
+<li>B_树</li>
+<li>哈希表（通过增量序列解决冲突）</li>
+</ul>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">排序算法</th>
+<th style="text-align:center">平均情况</th>
+<th style="text-align:center">最好情况</th>
+<th style="text-align:center">最坏情况</th>
+<th style="text-align:center">空间复杂度</th>
+<th style="text-align:center">稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">直接插入排序</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">希尔排序</td>
+<td style="text-align:center">O(n^1.3)</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">简单选择排序</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">堆排序</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">冒泡排序</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">O(n2)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">快速排序</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(n^2)</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">归并排序</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(nlog2 n)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">稳定</td>
+</tr>
+<tr>
+<td style="text-align:center">基数排序</td>
+<td style="text-align:center">O(d(r+n))</td>
+<td style="text-align:center">O(d(n+rd))</td>
+<td style="text-align:center">O(d(r+n))</td>
+<td style="text-align:center">O(rd+n)</td>
+<td style="text-align:center">稳定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>直接插入排序</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insertsort</span> <span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(data[i] &lt; data[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            tmp = data[i];</span><br><span class="line">            data[i] = data[i <span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">for</span>(j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; data[j] &gt; tmp; j--) data[j+<span class="number">1</span>] = data[j];</span><br><span class="line">            data[j + <span class="number">1</span>] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>希尔排序</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">**简单选择排序**</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, k, tmp;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n <span class="number">-1</span>; i++) &#123;</span><br><span class="line">        k = i;</span><br><span class="line">        <span class="keyword">for</span>(j = i + <span class="number">1</span>;j &lt; n;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(data[j] &lt; data[k]) k = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k != i) &#123;</span><br><span class="line">            tmp = data[i]; data[i] = data[k]; data[k] = tmp</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>快速排序</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partiton</span><span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i, j, pivot;</span><br><span class="line">  pivot = data[low];</span><br><span class="line">  i = low;</span><br><span class="line">  j = high;</span><br><span class="line">  <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j &amp;&amp; data[j] &gt;= pivot)</span><br><span class="line">      j--;</span><br><span class="line">    data[i] = data[j];</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j &amp;&amp; data[i] &lt;= pivot)</span><br><span class="line">      i++;</span><br><span class="line">    data[j] = data[i];</span><br><span class="line">  &#125;</span><br><span class="line">  data[i] = pivot;</span><br><span class="line">  <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> data[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (low &lt; high)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">int</span> loc = partiton(data, low, high);</span><br><span class="line">    quickSort(data, low, loc - <span class="number">1</span>);</span><br><span class="line">    quickSort(data, loc + <span class="number">1</span>, high);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </article>
     <!-- 前后页  -->
@@ -354,7 +441,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性表"><span class="toc-number">1.</span> <span class="toc-text">线性表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈"><span class="toc-number">2.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列"><span class="toc-number">3.</span> <span class="toc-text">队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#串"><span class="toc-number">4.</span> <span class="toc-text">串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">5.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵"><span class="toc-number">6.</span> <span class="toc-text">矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树"><span class="toc-number">7.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">8.</span> <span class="toc-text">图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找"><span class="toc-number">9.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">10.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直接插入排序"><span class="toc-number">10.1.</span> <span class="toc-text">直接插入排序</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性表"><span class="toc-number">1.</span> <span class="toc-text">线性表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈"><span class="toc-number">2.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#队列"><span class="toc-number">3.</span> <span class="toc-text">队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#串"><span class="toc-number">4.</span> <span class="toc-text">串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">5.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵"><span class="toc-number">6.</span> <span class="toc-text">矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树"><span class="toc-number">7.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">8.</span> <span class="toc-text">图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找"><span class="toc-number">9.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">10.</span> <span class="toc-text">排序</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -645,14 +732,7 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 22 </div>
+    <div class="total-archive"> Total : 23 </div>
     
     <div class="post-archive">
     
@@ -661,6 +741,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span><a class="archive-post-title" href= "/2018/04/19/css-emphasis/" >CSS要点</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -785,17 +870,19 @@
     
         <span class="sidebar-tag-name"><a href= "#">理论</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">web</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">git</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">leetCode</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">react</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">redux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">react-native</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
